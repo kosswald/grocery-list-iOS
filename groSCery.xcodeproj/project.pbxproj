@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3588161D0C81523B5845EC67 /* Pods_groSCeryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBABE4A83D003910526111E /* Pods_groSCeryUITests.framework */; };
+		576DEFD08ED897EB67C6901F /* Pods_groSCeryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC664E4AA67B50A93D79300 /* Pods_groSCeryTests.framework */; };
+		6DAE84BC217BA262007E480F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE84BB217BA262007E480F /* LoginViewController.swift */; };
+		6DAE84C0217BC18B007E480F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DAE84BF217BC18B007E480F /* GoogleService-Info.plist */; };
 		A3EEF4462178FD3600FE09C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF4452178FD3600FE09C5 /* AppDelegate.swift */; };
 		A3EEF4482178FD3600FE09C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF4472178FD3600FE09C5 /* ViewController.swift */; };
 		A3EEF44B2178FD3600FE09C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3EEF4492178FD3600FE09C5 /* Main.storyboard */; };
@@ -14,6 +18,7 @@
 		A3EEF4502178FD3700FE09C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3EEF44E2178FD3700FE09C5 /* LaunchScreen.storyboard */; };
 		A3EEF45B2178FD3700FE09C5 /* groSCeryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF45A2178FD3700FE09C5 /* groSCeryTests.swift */; };
 		A3EEF4662178FD3700FE09C5 /* groSCeryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF4652178FD3700FE09C5 /* groSCeryUITests.swift */; };
+		D3913EFD06B245BFED9E0FB2 /* Pods_groSCery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC3A43B8EA91DEFFC028192 /* Pods_groSCery.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1BC3A43B8EA91DEFFC028192 /* Pods_groSCery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_groSCery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FBABE4A83D003910526111E /* Pods_groSCeryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_groSCeryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DAE84BB217BA262007E480F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6DAE84BF217BC18B007E480F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9BE40DFE0FF3FBF3C3535B69 /* Pods-groSCery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groSCery.release.xcconfig"; path = "Pods/Target Support Files/Pods-groSCery/Pods-groSCery.release.xcconfig"; sourceTree = "<group>"; };
 		A3EEF4422178FD3600FE09C5 /* groSCery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = groSCery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3EEF4452178FD3600FE09C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3EEF4472178FD3600FE09C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +57,12 @@
 		A3EEF4612178FD3700FE09C5 /* groSCeryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = groSCeryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3EEF4652178FD3700FE09C5 /* groSCeryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = groSCeryUITests.swift; sourceTree = "<group>"; };
 		A3EEF4672178FD3700FE09C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5DF34A200FACAD141A9D9FF /* Pods-groSCeryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groSCeryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-groSCeryTests/Pods-groSCeryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B52940DB7D17BECF5C5AE6F5 /* Pods-groSCeryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groSCeryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-groSCeryUITests/Pods-groSCeryUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C71E6040F26A257AEC4F41B9 /* Pods-groSCeryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groSCeryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-groSCeryTests/Pods-groSCeryTests.release.xcconfig"; sourceTree = "<group>"; };
+		CD2044FD476E3A63339D0176 /* Pods-groSCery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groSCery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-groSCery/Pods-groSCery.debug.xcconfig"; sourceTree = "<group>"; };
+		ECE716017357CA1DDF0670C8 /* Pods-groSCeryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groSCeryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-groSCeryUITests/Pods-groSCeryUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FBC664E4AA67B50A93D79300 /* Pods_groSCeryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_groSCeryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3913EFD06B245BFED9E0FB2 /* Pods_groSCery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				576DEFD08ED897EB67C6901F /* Pods_groSCeryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +86,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3588161D0C81523B5845EC67 /* Pods_groSCeryUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2ABEF2188EBC61AF40FA55AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1BC3A43B8EA91DEFFC028192 /* Pods_groSCery.framework */,
+				FBC664E4AA67B50A93D79300 /* Pods_groSCeryTests.framework */,
+				1FBABE4A83D003910526111E /* Pods_groSCeryUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A3EEF4392178FD3600FE09C5 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +110,8 @@
 				A3EEF4592178FD3700FE09C5 /* groSCeryTests */,
 				A3EEF4642178FD3700FE09C5 /* groSCeryUITests */,
 				A3EEF4432178FD3600FE09C5 /* Products */,
+				D5D8B4346C47EC062DC67B30 /* Pods */,
+				2ABEF2188EBC61AF40FA55AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,10 +130,12 @@
 			children = (
 				A3EEF4452178FD3600FE09C5 /* AppDelegate.swift */,
 				A3EEF4472178FD3600FE09C5 /* ViewController.swift */,
+				6DAE84BB217BA262007E480F /* LoginViewController.swift */,
 				A3EEF4492178FD3600FE09C5 /* Main.storyboard */,
 				A3EEF44C2178FD3700FE09C5 /* Assets.xcassets */,
 				A3EEF44E2178FD3700FE09C5 /* LaunchScreen.storyboard */,
 				A3EEF4512178FD3700FE09C5 /* Info.plist */,
+				6DAE84BF217BC18B007E480F /* GoogleService-Info.plist */,
 			);
 			path = groSCery;
 			sourceTree = "<group>";
@@ -125,6 +158,19 @@
 			path = groSCeryUITests;
 			sourceTree = "<group>";
 		};
+		D5D8B4346C47EC062DC67B30 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD2044FD476E3A63339D0176 /* Pods-groSCery.debug.xcconfig */,
+				9BE40DFE0FF3FBF3C3535B69 /* Pods-groSCery.release.xcconfig */,
+				A5DF34A200FACAD141A9D9FF /* Pods-groSCeryTests.debug.xcconfig */,
+				C71E6040F26A257AEC4F41B9 /* Pods-groSCeryTests.release.xcconfig */,
+				ECE716017357CA1DDF0670C8 /* Pods-groSCeryUITests.debug.xcconfig */,
+				B52940DB7D17BECF5C5AE6F5 /* Pods-groSCeryUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3EEF46A2178FD3700FE09C5 /* Build configuration list for PBXNativeTarget "groSCery" */;
 			buildPhases = (
+				8171A3CC8D75851F3758BFCA /* [CP] Check Pods Manifest.lock */,
 				A3EEF43E2178FD3600FE09C5 /* Sources */,
 				A3EEF43F2178FD3600FE09C5 /* Frameworks */,
 				A3EEF4402178FD3600FE09C5 /* Resources */,
+				DAA9D758629A2465A59A10DB /* [CP] Embed Pods Frameworks */,
+				1215A162D073DAF858950F14 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,6 +198,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3EEF46D2178FD3700FE09C5 /* Build configuration list for PBXNativeTarget "groSCeryTests" */;
 			buildPhases = (
+				1D6AD5554ABA277890E9DFDD /* [CP] Check Pods Manifest.lock */,
 				A3EEF4522178FD3700FE09C5 /* Sources */,
 				A3EEF4532178FD3700FE09C5 /* Frameworks */,
 				A3EEF4542178FD3700FE09C5 /* Resources */,
@@ -167,6 +217,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3EEF4702178FD3700FE09C5 /* Build configuration list for PBXNativeTarget "groSCeryUITests" */;
 			buildPhases = (
+				B034711BE096E905DADD255B /* [CP] Check Pods Manifest.lock */,
 				A3EEF45D2178FD3700FE09C5 /* Sources */,
 				A3EEF45E2178FD3700FE09C5 /* Frameworks */,
 				A3EEF45F2178FD3700FE09C5 /* Resources */,
@@ -230,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3EEF4502178FD3700FE09C5 /* LaunchScreen.storyboard in Resources */,
+				6DAE84C0217BC18B007E480F /* GoogleService-Info.plist in Resources */,
 				A3EEF44D2178FD3700FE09C5 /* Assets.xcassets in Resources */,
 				A3EEF44B2178FD3600FE09C5 /* Main.storyboard in Resources */,
 			);
@@ -251,11 +303,133 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1215A162D073DAF858950F14 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-groSCery/Pods-groSCery-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-groSCery/Pods-groSCery-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1D6AD5554ABA277890E9DFDD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-groSCeryTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8171A3CC8D75851F3758BFCA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-groSCery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B034711BE096E905DADD255B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-groSCeryUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAA9D758629A2465A59A10DB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-groSCery/Pods-groSCery-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-groSCery/Pods-groSCery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A3EEF43E2178FD3600FE09C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DAE84BC217BA262007E480F /* LoginViewController.swift in Sources */,
 				A3EEF4482178FD3600FE09C5 /* ViewController.swift in Sources */,
 				A3EEF4462178FD3600FE09C5 /* AppDelegate.swift in Sources */,
 			);
@@ -430,9 +604,12 @@
 		};
 		A3EEF46B2178FD3700FE09C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD2044FD476E3A63339D0176 /* Pods-groSCery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VHHYDD6Z36;
 				INFOPLIST_FILE = groSCery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -440,6 +617,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cs201.groSCery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -447,9 +625,12 @@
 		};
 		A3EEF46C2178FD3700FE09C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BE40DFE0FF3FBF3C3535B69 /* Pods-groSCery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VHHYDD6Z36;
 				INFOPLIST_FILE = groSCery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -457,6 +638,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cs201.groSCery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -464,6 +646,7 @@
 		};
 		A3EEF46E2178FD3700FE09C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5DF34A200FACAD141A9D9FF /* Pods-groSCeryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -484,6 +667,7 @@
 		};
 		A3EEF46F2178FD3700FE09C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C71E6040F26A257AEC4F41B9 /* Pods-groSCeryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -504,6 +688,7 @@
 		};
 		A3EEF4712178FD3700FE09C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECE716017357CA1DDF0670C8 /* Pods-groSCeryUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -523,6 +708,7 @@
 		};
 		A3EEF4722178FD3700FE09C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B52940DB7D17BECF5C5AE6F5 /* Pods-groSCeryUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
