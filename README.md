@@ -14,7 +14,7 @@ SSH:
 
 ### Install CocoaPods
 
-CocoaPods will allow you to use the pods and install them yourself
+CocoaPods is not neccessary to build the project but is needed to add pods yourself. To install CocoaPods:
 
 `sudo gem install cocoapods`
 
@@ -32,11 +32,10 @@ Open "Podfile"
 
 Under "# Pods for groSCery" add a new line and write "pod [Pod Name]"
 
-`# Pods for groSCery
+`# Pods for groSCery  
 pod '[Pod Name]'`
 
 Then run `pod install` to add it to the project
 
-### Remove Pod
 
 
