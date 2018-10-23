@@ -32,8 +32,12 @@ Open "Podfile"
 
 Under "# Pods for groSCery" add a new line and write "pod [Pod Name]"
 
-`# Pods for groSCery  
-pod '[Pod Name]'`
+```
+# Pods for groSCery  
+pod '[Pod Name]'
+```
+
+
 
 Then run `pod install` to add it to the project
 
