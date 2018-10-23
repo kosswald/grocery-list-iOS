@@ -1,0 +1,6 @@
+framework module Pods_groSCeryTests {
+  umbrella header "Pods-groSCeryTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

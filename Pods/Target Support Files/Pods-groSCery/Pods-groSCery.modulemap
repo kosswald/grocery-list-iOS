@@ -1,0 +1,6 @@
+framework module Pods_groSCery {
+  umbrella header "Pods-groSCery-umbrella.h"
+
+  export *
+  module * { export * }
+}
