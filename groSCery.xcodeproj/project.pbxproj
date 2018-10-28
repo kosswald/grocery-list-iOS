@@ -19,6 +19,11 @@
 		A3EEF45B2178FD3700FE09C5 /* groSCeryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF45A2178FD3700FE09C5 /* groSCeryTests.swift */; };
 		A3EEF4662178FD3700FE09C5 /* groSCeryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF4652178FD3700FE09C5 /* groSCeryUITests.swift */; };
 		D3913EFD06B245BFED9E0FB2 /* Pods_groSCery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC3A43B8EA91DEFFC028192 /* Pods_groSCery.framework */; };
+		ED6E0402218668030081AABD /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E03FF218668030081AABD /* Group.swift */; };
+		ED6E0403218668030081AABD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E0400218668030081AABD /* User.swift */; };
+		ED6E0404218668030081AABD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E0401218668030081AABD /* Item.swift */; };
+		ED6E04072186680D0081AABD /* GroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E04052186680D0081AABD /* GroceryListViewController.swift */; };
+		ED6E04082186680D0081AABD /* BoughtItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E04062186680D0081AABD /* BoughtItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +67,11 @@
 		C71E6040F26A257AEC4F41B9 /* Pods-groSCeryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groSCeryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-groSCeryTests/Pods-groSCeryTests.release.xcconfig"; sourceTree = "<group>"; };
 		CD2044FD476E3A63339D0176 /* Pods-groSCery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groSCery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-groSCery/Pods-groSCery.debug.xcconfig"; sourceTree = "<group>"; };
 		ECE716017357CA1DDF0670C8 /* Pods-groSCeryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groSCeryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-groSCeryUITests/Pods-groSCeryUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		ED6E03FF218668030081AABD /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		ED6E0400218668030081AABD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		ED6E0401218668030081AABD /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		ED6E04052186680D0081AABD /* GroceryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListViewController.swift; sourceTree = "<group>"; };
+		ED6E04062186680D0081AABD /* BoughtItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoughtItemViewController.swift; sourceTree = "<group>"; };
 		FBC664E4AA67B50A93D79300 /* Pods_groSCeryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_groSCeryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,8 +140,13 @@
 			children = (
 				A3EEF4452178FD3600FE09C5 /* AppDelegate.swift */,
 				A3EEF4472178FD3600FE09C5 /* ViewController.swift */,
+				ED6E04062186680D0081AABD /* BoughtItemViewController.swift */,
+				ED6E04052186680D0081AABD /* GroceryListViewController.swift */,
 				6DAE84BB217BA262007E480F /* LoginViewController.swift */,
 				A3EEF4492178FD3600FE09C5 /* Main.storyboard */,
+				ED6E03FF218668030081AABD /* Group.swift */,
+				ED6E0401218668030081AABD /* Item.swift */,
+				ED6E0400218668030081AABD /* User.swift */,
 				A3EEF44C2178FD3700FE09C5 /* Assets.xcassets */,
 				A3EEF44E2178FD3700FE09C5 /* LaunchScreen.storyboard */,
 				A3EEF4512178FD3700FE09C5 /* Info.plist */,
@@ -429,9 +444,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED6E04082186680D0081AABD /* BoughtItemViewController.swift in Sources */,
 				6DAE84BC217BA262007E480F /* LoginViewController.swift in Sources */,
+				ED6E04072186680D0081AABD /* GroceryListViewController.swift in Sources */,
 				A3EEF4482178FD3600FE09C5 /* ViewController.swift in Sources */,
 				A3EEF4462178FD3600FE09C5 /* AppDelegate.swift in Sources */,
+				ED6E0403218668030081AABD /* User.swift in Sources */,
+				ED6E0404218668030081AABD /* Item.swift in Sources */,
+				ED6E0402218668030081AABD /* Group.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,7 +629,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VHHYDD6Z36;
+				DEVELOPMENT_TEAM = T252EPP745;
 				INFOPLIST_FILE = groSCery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -630,7 +650,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VHHYDD6Z36;
+				DEVELOPMENT_TEAM = T252EPP745;
 				INFOPLIST_FILE = groSCery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
