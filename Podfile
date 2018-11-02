@@ -6,9 +6,7 @@ target 'groSCery' do
   use_frameworks!
 
   # Pods for groSCery
-  pod 'Firebase/Core'
-  pod 'Firebase/Auth'
-  pod 'GoogleSignIn'
+  pod 'Alamofire'
 
   target 'groSCeryTests' do
     inherit! :search_paths
