@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 protocol AddRemoveItemDelegate: class {
     func didBuyItem(item: Item, index: Int, price: String)
     func didMarkItemOutOfStock(item: Item, index: Int)
@@ -128,11 +130,5 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
     }
-
-    
-    
-    
-    
-    
     
 }
