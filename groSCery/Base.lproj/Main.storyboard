@@ -134,6 +134,9 @@
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Group Page"/>
+                                <connections>
+                                    <action selector="GoToUser:" destination="wTI-3T-aOh" eventType="touchUpInside" id="50c-fL-voX"/>
+                                </connections>
                             </button>
                             <connections>
                                 <segue destination="NaU-fi-jLf" kind="show" identifier="UserToGroupSegue" id="eXe-DJ-PgM"/>

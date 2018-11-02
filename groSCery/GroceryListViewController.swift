@@ -131,4 +131,10 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+    
+    @IBAction func GoToUser(_ sender: Any) {
+        performSegue(withIdentifier: "UserToGroupSegue", sender: Any.self)
+        
+    }
+    
 }

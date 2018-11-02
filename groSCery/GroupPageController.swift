@@ -21,9 +21,11 @@ class GroupPageController: UIViewController {
 //        }
 //    }
 
-    @IBAction func GoToUser(_ sender: Any) {
-        performSegue(withIdentifier: "GroceryListToBoughtItemSegueID", sender: Any.self)
-
-    }
+//    @IBAction func GoToUser(_ sender: Any) {
+//        performSegue(withIdentifier: "GroceryListToBoughtItemSegueID", sender: Any.self)
+//
+//    }
+    
+    
 }
 
