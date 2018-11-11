@@ -201,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mJK-iB-rZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8156" y="33.990147783251231"/>
+            <point key="canvasLocation" x="7655" y="30"/>
         </scene>
         <!--Test Page View Controller-->
         <scene sceneID="7Lm-zG-pqB">
@@ -254,14 +254,6 @@
                                     <outlet property="delegate" destination="NaU-fi-jLf" id="mbw-Qr-POh"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8W7-rC-Cak">
-                                <rect key="frame" x="0.0" y="712" width="375" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
-                                <state key="normal" title="Add Item">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -272,7 +264,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cpB-kA-iem"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Group Items" id="Udj-g5-xXi"/>
+                    <navigationItem key="navigationItem" title="Group Items" id="Udj-g5-xXi">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Atc-Y8-lly">
+                            <connections>
+                                <segue destination="NkQ-fh-csU" kind="presentation" id="AE9-aw-Y49"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="he4-pd-dzK" id="LNd-nX-dzk"/>
                     </connections>
@@ -281,6 +279,65 @@
             </objects>
             <point key="canvasLocation" x="6668" y="772.90640394088678"/>
         </scene>
+        <!--Add Item View Controller-->
+        <scene sceneID="TDf-Uj-B8e">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ep7-Uf-VHU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9zN-Jj-V0O" userLabel="Exit" sceneMemberID="exit"/>
+                <viewController id="NkQ-fh-csU" customClass="AddItemViewController" customModule="groSCery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Psd-I9-Lev">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rff-0z-Rt1">
+                                <rect key="frame" x="16" y="44" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="NkQ-fh-csU" eventType="touchUpInside" id="404-sX-f1l"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add an Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqj-vw-CMK">
+                                <rect key="frame" x="98.666666666666686" y="103.66666666666667" width="178" height="39.000000000000014"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q7e-kn-c8h">
+                                <rect key="frame" x="37.666666666666657" y="190.66666666666666" width="300" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJu-jg-R2Y">
+                                <rect key="frame" x="163" y="250.66666666666663" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitButtonPressed:" destination="NkQ-fh-csU" eventType="touchUpInside" id="Mti-Oz-Zt1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Q7e-kn-c8h" firstAttribute="width" secondItem="Psd-I9-Lev" secondAttribute="width" multiplier="0.8" id="30r-LV-Lwg"/>
+                            <constraint firstItem="Rff-0z-Rt1" firstAttribute="top" secondItem="pSq-ou-Qxd" secondAttribute="top" id="DTf-aJ-qLs"/>
+                            <constraint firstItem="tqj-vw-CMK" firstAttribute="centerY" secondItem="pSq-ou-Qxd" secondAttribute="centerY" multiplier="0.3" id="cRw-aF-Ero"/>
+                            <constraint firstItem="Q7e-kn-c8h" firstAttribute="centerY" secondItem="pSq-ou-Qxd" secondAttribute="centerY" multiplier="0.5" id="eJS-HT-K4J"/>
+                            <constraint firstItem="LJu-jg-R2Y" firstAttribute="centerX" secondItem="pSq-ou-Qxd" secondAttribute="centerX" id="hkH-35-UAS"/>
+                            <constraint firstItem="Rff-0z-Rt1" firstAttribute="leading" secondItem="pSq-ou-Qxd" secondAttribute="leading" constant="16" id="nMr-dl-72W"/>
+                            <constraint firstItem="tqj-vw-CMK" firstAttribute="centerX" secondItem="pSq-ou-Qxd" secondAttribute="centerX" id="o3u-fE-z0s"/>
+                            <constraint firstItem="Q7e-kn-c8h" firstAttribute="centerX" secondItem="pSq-ou-Qxd" secondAttribute="centerX" id="ukE-4b-5LP"/>
+                            <constraint firstItem="LJu-jg-R2Y" firstAttribute="top" secondItem="Q7e-kn-c8h" secondAttribute="bottom" constant="30" id="veh-4O-MIo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pSq-ou-Qxd"/>
+                    </view>
+                    <connections>
+                        <outlet property="itemNameTextField" destination="Q7e-kn-c8h" id="Nb7-rh-Zze"/>
+                        <segue destination="9zN-Jj-V0O" kind="unwind" identifier="unwindSegueToGroupID" unwindAction="unwindToVC1WithSegue:" id="H1q-y8-TaR"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="7605.6000000000004" y="765.51724137931035"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Jr5-fi-CgT">
             <objects>
@@ -288,6 +345,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="qhv-dx-utv"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rtl-D0-W7o">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

@@ -106,6 +106,18 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.reloadData()
     }
     
+    @IBAction func unwindToVC1(segue:UIStoryboardSegue) {
+        if let addItemVC = segue.source as? AddItemViewController {
+            if let itemName = addItemVC.itemNameTextField.text {
+                suscribedItems.append(Item(inStock: true, name: itemName, suscribedUsers: []))
+                tableView.reloadData()
+            }
+            
+        }
+        
+    }
+
+    
     
     
     

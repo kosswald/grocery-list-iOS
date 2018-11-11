@@ -26,6 +26,7 @@
 		ED6E0404218668030081AABD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E0401218668030081AABD /* Item.swift */; };
 		ED6E04072186680D0081AABD /* GroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E04052186680D0081AABD /* GroceryListViewController.swift */; };
 		ED6E04082186680D0081AABD /* BoughtItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E04062186680D0081AABD /* BoughtItemViewController.swift */; };
+		ED9785A32198B22600ED165D /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9785A22198B22600ED165D /* AddItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		ED6E0401218668030081AABD /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		ED6E04052186680D0081AABD /* GroceryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListViewController.swift; sourceTree = "<group>"; };
 		ED6E04062186680D0081AABD /* BoughtItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoughtItemViewController.swift; sourceTree = "<group>"; };
+		ED9785A22198B22600ED165D /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		FBC664E4AA67B50A93D79300 /* Pods_groSCeryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_groSCeryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 				ED6E04052186680D0081AABD /* GroceryListViewController.swift */,
 				6DAE84BB217BA262007E480F /* LoginViewController.swift */,
 				A3EEF4492178FD3600FE09C5 /* Main.storyboard */,
+				ED9785A22198B22600ED165D /* AddItemViewController.swift */,
 				38BB4BF4218C075B00230878 /* GroupPageController.swift */,
 				38BDDD3C2186ED550000702F /* testPageViewController.swift */,
 				ED6E03FF218668030081AABD /* Group.swift */,
@@ -429,6 +432,7 @@
 				ED6E0403218668030081AABD /* User.swift in Sources */,
 				ED6E0404218668030081AABD /* Item.swift in Sources */,
 				ED6E0402218668030081AABD /* Group.swift in Sources */,
+				ED9785A32198B22600ED165D /* AddItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
