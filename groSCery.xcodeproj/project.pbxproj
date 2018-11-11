@@ -11,7 +11,6 @@
 		38BB4BF5218C075B00230878 /* GroupPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BB4BF4218C075B00230878 /* GroupPageController.swift */; };
 		38BDDD3D2186ED550000702F /* testPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDDD3C2186ED550000702F /* testPageViewController.swift */; };
 		576DEFD08ED897EB67C6901F /* Pods_groSCeryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC664E4AA67B50A93D79300 /* Pods_groSCeryTests.framework */; };
-		6DAE84BC217BA262007E480F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE84BB217BA262007E480F /* LoginViewController.swift */; };
 		6DAE84C0217BC18B007E480F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DAE84BF217BC18B007E480F /* GoogleService-Info.plist */; };
 		A3EEF4462178FD3600FE09C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF4452178FD3600FE09C5 /* AppDelegate.swift */; };
 		A3EEF4482178FD3600FE09C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF4472178FD3600FE09C5 /* ViewController.swift */; };
@@ -27,6 +26,9 @@
 		ED6E04072186680D0081AABD /* GroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E04052186680D0081AABD /* GroceryListViewController.swift */; };
 		ED6E04082186680D0081AABD /* BoughtItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E04062186680D0081AABD /* BoughtItemViewController.swift */; };
 		ED9785A32198B22600ED165D /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9785A22198B22600ED165D /* AddItemViewController.swift */; };
+		ED9785A52198D03B00ED165D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9785A42198D03B00ED165D /* NetworkManager.swift */; };
+		ED9785A72198D66300ED165D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9785A62198D66300ED165D /* Data.swift */; };
+		ED9785A92198E08A00ED165D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9785A82198E08A00ED165D /* InitialViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +53,6 @@
 		1FBABE4A83D003910526111E /* Pods_groSCeryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_groSCeryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38BB4BF4218C075B00230878 /* GroupPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPageController.swift; sourceTree = "<group>"; };
 		38BDDD3C2186ED550000702F /* testPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testPageViewController.swift; sourceTree = "<group>"; };
-		6DAE84BB217BA262007E480F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6DAE84BF217BC18B007E480F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9BE40DFE0FF3FBF3C3535B69 /* Pods-groSCery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groSCery.release.xcconfig"; path = "Pods/Target Support Files/Pods-groSCery/Pods-groSCery.release.xcconfig"; sourceTree = "<group>"; };
 		A3EEF4422178FD3600FE09C5 /* groSCery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = groSCery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +79,9 @@
 		ED6E04052186680D0081AABD /* GroceryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListViewController.swift; sourceTree = "<group>"; };
 		ED6E04062186680D0081AABD /* BoughtItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoughtItemViewController.swift; sourceTree = "<group>"; };
 		ED9785A22198B22600ED165D /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		ED9785A42198D03B00ED165D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		ED9785A62198D66300ED165D /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		ED9785A82198E08A00ED165D /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		FBC664E4AA67B50A93D79300 /* Pods_groSCeryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_groSCeryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -148,9 +152,11 @@
 				A3EEF4472178FD3600FE09C5 /* ViewController.swift */,
 				ED6E04062186680D0081AABD /* BoughtItemViewController.swift */,
 				ED6E04052186680D0081AABD /* GroceryListViewController.swift */,
-				6DAE84BB217BA262007E480F /* LoginViewController.swift */,
 				A3EEF4492178FD3600FE09C5 /* Main.storyboard */,
+				ED9785A82198E08A00ED165D /* InitialViewController.swift */,
 				ED9785A22198B22600ED165D /* AddItemViewController.swift */,
+				ED9785A42198D03B00ED165D /* NetworkManager.swift */,
+				ED9785A62198D66300ED165D /* Data.swift */,
 				38BB4BF4218C075B00230878 /* GroupPageController.swift */,
 				38BDDD3C2186ED550000702F /* testPageViewController.swift */,
 				ED6E03FF218668030081AABD /* Group.swift */,
@@ -422,13 +428,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED9785A52198D03B00ED165D /* NetworkManager.swift in Sources */,
+				ED9785A92198E08A00ED165D /* InitialViewController.swift in Sources */,
 				ED6E04082186680D0081AABD /* BoughtItemViewController.swift in Sources */,
 				38BDDD3D2186ED550000702F /* testPageViewController.swift in Sources */,
-				6DAE84BC217BA262007E480F /* LoginViewController.swift in Sources */,
 				ED6E04072186680D0081AABD /* GroceryListViewController.swift in Sources */,
 				A3EEF4482178FD3600FE09C5 /* ViewController.swift in Sources */,
 				38BB4BF5218C075B00230878 /* GroupPageController.swift in Sources */,
 				A3EEF4462178FD3600FE09C5 /* AppDelegate.swift in Sources */,
+				ED9785A72198D66300ED165D /* Data.swift in Sources */,
 				ED6E0403218668030081AABD /* User.swift in Sources */,
 				ED6E0404218668030081AABD /* Item.swift in Sources */,
 				ED6E0402218668030081AABD /* Group.swift in Sources */,
