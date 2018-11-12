@@ -42,7 +42,7 @@ class NetworkManager {
         }
     }
     
-    func createNewGroup(name: String, accessToken: String, completion: @escaping (Bool) -> Void) {
+    func createNewGroup(name: String, completion: @escaping (Bool, String) -> Void) {
         let parameters : [String : Any] = ["name" : name]
         
         let postString = dictToString(paramaterDict: parameters)
@@ -54,20 +54,22 @@ class NetworkManager {
             request.httpMethod = "POST"
             request.httpBody = postData
             request.timeoutInterval = 10
-            let accessTokenBearer = "Bearer " + accessToken
+            let accessTokenBearer = "Bearer " + SavedData().accessToken
             request.setValue(accessTokenBearer, forHTTPHeaderField: "Authorization")
             let session = URLSession.shared
             session.dataTask(with: request, completionHandler: { (data, response, error) in
                 if error != nil {
-                    
+                    completion(false, "")
                 }
                 if let data = data {
                     do {
                         let successJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
-                        if let success = successJSON["success"] {
-                            completion(true)
+                        if let successDict = successJSON["success"] as? [String: String] {
+                            if let groupID = successDict["id"] {
+                                completion(true, groupID)
+                            }
                         } else {
-                            completion(false)
+                            completion(false, "")
                         }
                     } catch {
                         print(error)
@@ -75,6 +77,10 @@ class NetworkManager {
                 }
             }).resume()
         }
+    }
+    
+    func suscribeToGroup(name: String) {
+        
     }
     
     // Items

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3588161D0C81523B5845EC67 /* Pods_groSCeryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBABE4A83D003910526111E /* Pods_groSCeryUITests.framework */; };
 		38BB4BF5218C075B00230878 /* GroupPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BB4BF4218C075B00230878 /* GroupPageController.swift */; };
-		38BDDD3D2186ED550000702F /* testPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDDD3C2186ED550000702F /* testPageViewController.swift */; };
 		576DEFD08ED897EB67C6901F /* Pods_groSCeryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC664E4AA67B50A93D79300 /* Pods_groSCeryTests.framework */; };
 		6DAE84C0217BC18B007E480F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DAE84BF217BC18B007E480F /* GoogleService-Info.plist */; };
 		A3EEF4462178FD3600FE09C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF4452178FD3600FE09C5 /* AppDelegate.swift */; };
@@ -31,6 +30,9 @@
 		ED9785A92198E08A00ED165D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9785A82198E08A00ED165D /* InitialViewController.swift */; };
 		ED9785AB2198E56D00ED165D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9785AA2198E56D00ED165D /* LoginViewController.swift */; };
 		ED9785AD2198F6CD00ED165D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9785AC2198F6CD00ED165D /* SignUpViewController.swift */; };
+		ED9785AF2199010700ED165D /* JoinCreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9785AE2199010700ED165D /* JoinCreateGroupViewController.swift */; };
+		ED9785B12199064F00ED165D /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9785B02199064F00ED165D /* CreateGroupViewController.swift */; };
+		ED9785B32199065F00ED165D /* JoinGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9785B22199065F00ED165D /* JoinGroupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +56,6 @@
 		1BC3A43B8EA91DEFFC028192 /* Pods_groSCery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_groSCery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBABE4A83D003910526111E /* Pods_groSCeryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_groSCeryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38BB4BF4218C075B00230878 /* GroupPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPageController.swift; sourceTree = "<group>"; };
-		38BDDD3C2186ED550000702F /* testPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testPageViewController.swift; sourceTree = "<group>"; };
 		6DAE84BF217BC18B007E480F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9BE40DFE0FF3FBF3C3535B69 /* Pods-groSCery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groSCery.release.xcconfig"; path = "Pods/Target Support Files/Pods-groSCery/Pods-groSCery.release.xcconfig"; sourceTree = "<group>"; };
 		A3EEF4422178FD3600FE09C5 /* groSCery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = groSCery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +87,9 @@
 		ED9785A82198E08A00ED165D /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		ED9785AA2198E56D00ED165D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ED9785AC2198F6CD00ED165D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		ED9785AE2199010700ED165D /* JoinCreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCreateGroupViewController.swift; sourceTree = "<group>"; };
+		ED9785B02199064F00ED165D /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
+		ED9785B22199065F00ED165D /* JoinGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupViewController.swift; sourceTree = "<group>"; };
 		FBC664E4AA67B50A93D79300 /* Pods_groSCeryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_groSCeryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -157,6 +161,8 @@
 				ED6E04062186680D0081AABD /* BoughtItemViewController.swift */,
 				ED6E04052186680D0081AABD /* GroceryListViewController.swift */,
 				A3EEF4492178FD3600FE09C5 /* Main.storyboard */,
+				ED9785B02199064F00ED165D /* CreateGroupViewController.swift */,
+				ED9785B22199065F00ED165D /* JoinGroupViewController.swift */,
 				ED9785AC2198F6CD00ED165D /* SignUpViewController.swift */,
 				ED9785AA2198E56D00ED165D /* LoginViewController.swift */,
 				ED9785A82198E08A00ED165D /* InitialViewController.swift */,
@@ -164,8 +170,8 @@
 				ED9785A42198D03B00ED165D /* NetworkManager.swift */,
 				ED9785A62198D66300ED165D /* SavedData.swift */,
 				38BB4BF4218C075B00230878 /* GroupPageController.swift */,
-				38BDDD3C2186ED550000702F /* testPageViewController.swift */,
 				ED6E03FF218668030081AABD /* Group.swift */,
+				ED9785AE2199010700ED165D /* JoinCreateGroupViewController.swift */,
 				ED6E0401218668030081AABD /* Item.swift */,
 				ED6E0400218668030081AABD /* User.swift */,
 				A3EEF44C2178FD3700FE09C5 /* Assets.xcassets */,
@@ -434,16 +440,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED9785AF2199010700ED165D /* JoinCreateGroupViewController.swift in Sources */,
 				ED9785AB2198E56D00ED165D /* LoginViewController.swift in Sources */,
 				ED9785A52198D03B00ED165D /* NetworkManager.swift in Sources */,
 				ED9785A92198E08A00ED165D /* InitialViewController.swift in Sources */,
 				ED6E04082186680D0081AABD /* BoughtItemViewController.swift in Sources */,
-				38BDDD3D2186ED550000702F /* testPageViewController.swift in Sources */,
 				ED6E04072186680D0081AABD /* GroceryListViewController.swift in Sources */,
 				A3EEF4482178FD3600FE09C5 /* ViewController.swift in Sources */,
 				38BB4BF5218C075B00230878 /* GroupPageController.swift in Sources */,
+				ED9785B32199065F00ED165D /* JoinGroupViewController.swift in Sources */,
 				A3EEF4462178FD3600FE09C5 /* AppDelegate.swift in Sources */,
 				ED9785AD2198F6CD00ED165D /* SignUpViewController.swift in Sources */,
+				ED9785B12199064F00ED165D /* CreateGroupViewController.swift in Sources */,
 				ED9785A72198D66300ED165D /* SavedData.swift in Sources */,
 				ED6E0403218668030081AABD /* User.swift in Sources */,
 				ED6E0404218668030081AABD /* Item.swift in Sources */,

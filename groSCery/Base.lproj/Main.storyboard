@@ -113,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="54s-yg-Utt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3524" y="-451"/>
+            <point key="canvasLocation" x="3103" y="-715"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="HO3-R2-Kw7">
@@ -188,11 +188,12 @@
                         <outlet property="emailTextField" destination="vi5-vx-0X5" id="YPv-af-3lu"/>
                         <outlet property="nameTextField" destination="tPm-Da-Enb" id="TC9-wy-ozC"/>
                         <outlet property="passwordTextField" destination="rHt-WF-Zri" id="aqn-O6-tz4"/>
+                        <segue destination="QiM-Wt-yUe" kind="show" identifier="SignupToGroupPageID" id="4ED-cu-5HH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fug-Ek-pwg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3070" y="299"/>
+            <point key="canvasLocation" x="2356" y="103"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="0pk-V7-PIf">
@@ -251,51 +252,145 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3934" y="299"/>
+            <point key="canvasLocation" x="3422" y="103"/>
+        </scene>
+        <!--Create Group View Controller-->
+        <scene sceneID="jFV-d2-gLw">
+            <objects>
+                <viewController id="TfC-v6-O9x" customClass="CreateGroupViewController" customModule="groSCery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s8d-YQ-aFh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxN-5D-7Kd">
+                                <rect key="frame" x="88" y="103.66666666666667" width="199" height="39.000000000000014"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qqd-14-bse">
+                                <rect key="frame" x="37.666666666666657" y="190.66666666666666" width="300" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="My1-6h-E2e">
+                                <rect key="frame" x="163" y="260.66666666666669" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitCreateGroup:" destination="TfC-v6-O9x" eventType="touchUpInside" id="B3H-3H-3h9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NxN-5D-7Kd" firstAttribute="centerY" secondItem="jpx-vN-OHg" secondAttribute="centerY" multiplier="0.3" id="3B6-FH-gbL"/>
+                            <constraint firstItem="NxN-5D-7Kd" firstAttribute="centerX" secondItem="jpx-vN-OHg" secondAttribute="centerX" id="Qbg-r7-Xga"/>
+                            <constraint firstItem="qqd-14-bse" firstAttribute="width" secondItem="s8d-YQ-aFh" secondAttribute="width" multiplier="0.8" id="cla-bc-zeh"/>
+                            <constraint firstItem="qqd-14-bse" firstAttribute="centerX" secondItem="jpx-vN-OHg" secondAttribute="centerX" id="cnw-02-Lcq"/>
+                            <constraint firstItem="qqd-14-bse" firstAttribute="centerY" secondItem="jpx-vN-OHg" secondAttribute="centerY" multiplier="0.5" id="gvU-DA-UVI"/>
+                            <constraint firstItem="My1-6h-E2e" firstAttribute="top" secondItem="qqd-14-bse" secondAttribute="bottom" constant="40" id="q0D-hk-qEu"/>
+                            <constraint firstItem="My1-6h-E2e" firstAttribute="centerX" secondItem="jpx-vN-OHg" secondAttribute="centerX" id="x2k-cD-ccn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jpx-vN-OHg"/>
+                    </view>
+                    <connections>
+                        <outlet property="groupName" destination="qqd-14-bse" id="Shk-bm-RAa"/>
+                        <segue destination="TiA-Gk-zuU" kind="show" identifier="CreateGroupToListSegueID" id="0aT-Qd-3d9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JYv-Bq-eeo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2524" y="1827"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="Mtf-2y-eki">
+            <objects>
+                <viewController id="tnU-TR-dLv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZLb-Ed-oZ7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2k8-9p-PXp">
+                                <rect key="frame" x="106" y="103.66666666666667" width="163" height="39.000000000000014"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dti-jo-PW1">
+                                <rect key="frame" x="37.666666666666657" y="190.66666666666666" width="300" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djD-GE-bfy">
+                                <rect key="frame" x="163" y="260.66666666666669" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="djD-GE-bfy" firstAttribute="top" secondItem="Dti-jo-PW1" secondAttribute="bottom" constant="40" id="8RF-Ms-EuB"/>
+                            <constraint firstItem="Dti-jo-PW1" firstAttribute="centerX" secondItem="Pfe-7l-5er" secondAttribute="centerX" id="9k6-z6-D2b"/>
+                            <constraint firstItem="2k8-9p-PXp" firstAttribute="centerX" secondItem="Pfe-7l-5er" secondAttribute="centerX" id="c5c-lX-WpM"/>
+                            <constraint firstItem="Dti-jo-PW1" firstAttribute="centerY" secondItem="Pfe-7l-5er" secondAttribute="centerY" multiplier="0.5" id="gld-7j-v23"/>
+                            <constraint firstItem="Dti-jo-PW1" firstAttribute="width" secondItem="ZLb-Ed-oZ7" secondAttribute="width" multiplier="0.8" id="kQu-bW-Vl5"/>
+                            <constraint firstItem="2k8-9p-PXp" firstAttribute="centerY" secondItem="Pfe-7l-5er" secondAttribute="centerY" multiplier="0.3" id="ofj-q6-ZnF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Pfe-7l-5er"/>
+                    </view>
+                    <connections>
+                        <segue destination="TiA-Gk-zuU" kind="show" id="ZFX-zN-1f4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LN3-tw-Lnh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3524" y="1827"/>
+        </scene>
+        <!--Join Create Group View Controller-->
         <scene sceneID="XN5-2R-9jf">
             <objects>
-                <viewController id="QiM-Wt-yUe" sceneMemberID="viewController">
+                <viewController id="QiM-Wt-yUe" customClass="JoinCreateGroupViewController" customModule="groSCery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ghF-4O-I3I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create or Join Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVv-Ki-1w1">
-                                <rect key="frame" x="34" y="139" width="307" height="39"/>
+                                <rect key="frame" x="34" y="103.66666666666667" width="307" height="39.000000000000014"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9bJ-b7-F7f">
-                                <rect key="frame" x="37" y="238" width="300" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQG-07-1A1">
-                                <rect key="frame" x="124" y="326" width="127" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQG-07-1A1">
+                                <rect key="frame" x="124" y="272.66666666666669" width="127" height="30"/>
                                 <state key="normal" title="Create New Group"/>
+                                <connections>
+                                    <segue destination="TfC-v6-O9x" kind="show" id="75e-IC-gP0"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHU-Ff-mSi">
-                                <rect key="frame" x="121" y="375" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHU-Ff-mSi">
+                                <rect key="frame" x="121" y="334.33333333333331" width="133" height="30"/>
                                 <state key="normal" title="Join Existing Group"/>
+                                <connections>
+                                    <segue destination="tnU-TR-dLv" kind="show" id="Nue-Ij-rnQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="I86-Oi-xWW" firstAttribute="top" secondItem="9bJ-b7-F7f" secondAttribute="bottom" constant="-224" id="6M4-Ij-wLh"/>
-                            <constraint firstItem="eVv-Ki-1w1" firstAttribute="leading" secondItem="I86-Oi-xWW" secondAttribute="trailing" constant="-341" id="T5c-GG-TsO"/>
-                            <constraint firstItem="I86-Oi-xWW" firstAttribute="top" secondItem="eVv-Ki-1w1" secondAttribute="bottom" constant="-134" id="sVR-Lv-dv5"/>
+                            <constraint firstItem="EHU-Ff-mSi" firstAttribute="centerY" secondItem="I86-Oi-xWW" secondAttribute="centerY" multiplier="0.85" id="9SI-Hi-iAc"/>
+                            <constraint firstItem="iQG-07-1A1" firstAttribute="centerX" secondItem="I86-Oi-xWW" secondAttribute="centerX" id="Q3K-5X-Ji4"/>
+                            <constraint firstItem="eVv-Ki-1w1" firstAttribute="centerX" secondItem="I86-Oi-xWW" secondAttribute="centerX" id="cpV-dA-Wrd"/>
+                            <constraint firstItem="EHU-Ff-mSi" firstAttribute="centerX" secondItem="I86-Oi-xWW" secondAttribute="centerX" id="mMJ-Be-srg"/>
+                            <constraint firstItem="iQG-07-1A1" firstAttribute="centerY" secondItem="I86-Oi-xWW" secondAttribute="centerY" multiplier="0.7" id="vzY-kC-BDm"/>
+                            <constraint firstItem="eVv-Ki-1w1" firstAttribute="centerY" secondItem="I86-Oi-xWW" secondAttribute="centerY" multiplier="0.3" id="xiz-mY-BEX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I86-Oi-xWW"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ka4-vU-sZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3524" y="1105"/>
+            <point key="canvasLocation" x="2356" y="825"/>
         </scene>
         <!--Maxwell's List-->
         <scene sceneID="dh8-ez-33c">
@@ -627,6 +722,6 @@
         <image name="Logo" width="518" height="518"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Afw-Nh-kk4"/>
+        <segue reference="0aT-Qd-3d9"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -51,16 +51,21 @@ class SignUpViewController: UIViewController {
         } else {
             
             NetworkManager().registerUser(name: nameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!) { (success, accessToken) in
-                if (success) {
-                    SavedData().accessToken = accessToken
-                    print("Sign up worked!!!!!")
-                    print(accessToken)
-                    
-                } else {
-                    let alert = UIAlertController(title: "Sign Up Error", message: "User already exists.", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    if (success) {
+                        SavedData().accessToken = accessToken
+                        print("Sign up worked!!!!!")
+                        print(accessToken)
+                        
+                        self.performSegue(withIdentifier: "SignupToGroupPageID", sender: nil)
+                        
+                    } else {
+                        let alert = UIAlertController(title: "Sign Up Error", message: "User already exists.", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
+               
             }
         }
     }
