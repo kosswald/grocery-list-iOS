@@ -19,6 +19,7 @@
 		A3EEF45B2178FD3700FE09C5 /* groSCeryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF45A2178FD3700FE09C5 /* groSCeryTests.swift */; };
 		A3EEF4662178FD3700FE09C5 /* groSCeryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF4652178FD3700FE09C5 /* groSCeryUITests.swift */; };
 		D3913EFD06B245BFED9E0FB2 /* Pods_groSCery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC3A43B8EA91DEFFC028192 /* Pods_groSCery.framework */; };
+		ED569D4A21995B6A00F0EFB0 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED569D4921995B6A00F0EFB0 /* ProfilePageViewController.swift */; };
 		ED6E0402218668030081AABD /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E03FF218668030081AABD /* Group.swift */; };
 		ED6E0403218668030081AABD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E0400218668030081AABD /* User.swift */; };
 		ED6E0404218668030081AABD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6E0401218668030081AABD /* Item.swift */; };
@@ -76,6 +77,7 @@
 		C71E6040F26A257AEC4F41B9 /* Pods-groSCeryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groSCeryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-groSCeryTests/Pods-groSCeryTests.release.xcconfig"; sourceTree = "<group>"; };
 		CD2044FD476E3A63339D0176 /* Pods-groSCery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groSCery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-groSCery/Pods-groSCery.debug.xcconfig"; sourceTree = "<group>"; };
 		ECE716017357CA1DDF0670C8 /* Pods-groSCeryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groSCeryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-groSCeryUITests/Pods-groSCeryUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		ED569D4921995B6A00F0EFB0 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		ED6E03FF218668030081AABD /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		ED6E0400218668030081AABD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ED6E0401218668030081AABD /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				ED6E04062186680D0081AABD /* BoughtItemViewController.swift */,
 				ED6E04052186680D0081AABD /* GroceryListViewController.swift */,
 				A3EEF4492178FD3600FE09C5 /* Main.storyboard */,
+				ED569D4921995B6A00F0EFB0 /* ProfilePageViewController.swift */,
 				ED9785B02199064F00ED165D /* CreateGroupViewController.swift */,
 				ED9785B22199065F00ED165D /* JoinGroupViewController.swift */,
 				ED9785AC2198F6CD00ED165D /* SignUpViewController.swift */,
@@ -453,6 +456,7 @@
 				ED9785AD2198F6CD00ED165D /* SignUpViewController.swift in Sources */,
 				ED9785B12199064F00ED165D /* CreateGroupViewController.swift in Sources */,
 				ED9785A72198D66300ED165D /* SavedData.swift in Sources */,
+				ED569D4A21995B6A00F0EFB0 /* ProfilePageViewController.swift in Sources */,
 				ED6E0403218668030081AABD /* User.swift in Sources */,
 				ED6E0404218668030081AABD /* Item.swift in Sources */,
 				ED6E0402218668030081AABD /* Group.swift in Sources */,
