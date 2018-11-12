@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Item {
+class Item: Codable {
     var inStock: Bool
     var name: String
     var suscribedUsers: [String]

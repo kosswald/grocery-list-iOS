@@ -17,13 +17,15 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
     var allItems = [Item]()
     var suscribedItems = [Item]()
     var notSuscribedItems = [Item]()
+    let networkManager = NetworkManager()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NetworkManager().createNewGroup(name: "TestGroup", accessToken: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImU2M2E1YTMyOGY3NDQ3ZTAzODEwNTlhY2YzOTc2NTI2YmJmZWI2NDg0YzY4MWY1MjM2YzcwYjgzZTYzMjJjZTI4NTk2MzljMDg1NGI0NTY1In0.eyJhdWQiOiIxIiwianRpIjoiZTYzYTVhMzI4Zjc0NDdlMDM4MTA1OWFjZjM5NzY1MjZiYmZlYjY0ODRjNjgxZjUyMzZjNzBiODNlNjMyMmNlMjg1OTYzOWMwODU0YjQ1NjUiLCJpYXQiOjE1NDE5Njk4MzYsIm5iZiI6MTU0MTk2OTgzNiwiZXhwIjoxNTczNTA1ODM2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Die479v2ivgzIDaybBfdYmOEUIcDODfMQuuxcbk990kjhTk1oIqIm-MQ3H3Q_AwUDjwiLERlTqra3M5d4FmI6lid5T4PjLk9PdIm9kso520OdWYd791yzjgcwTvZhSiqvrWfmGUFy7dSzyssHzl3LSnL9QQ-NIMB2ga4ELYziUYkEcZgdcuMb3L3jIhormwfxtTg1Qi1n3NtXLIY5liMRAal6sr0ZMHMbLbL7D-oJgFIFT9Si3vLMHZwzuRXbeEZAgYI3HN7YduFjhmp1j2IOCP-lZq2_M0__XrHsVOPiS2QAz0ALuyzTnh8KRTeE6J8eZW9EEmfrzTvXRQ--CrRnw9nrp8DdXmmDZjiiKTLEoq-LrNGcf71WyOfZ18ww-1Gk3msChwPQBRE9QzXBvEtR2ej6wsMKfbvo22S25pf96d1vGGN24r82SdtaQ1eWboIpzxOBm9X8Fy-7e6zmUn-inXxv_X3RIIXSUz7NUY3hF4-RsDmZAe1oDUO1urP-PZqktnjbvYS8EmqloVAW29gUHd4xYK5_fGyM0G-N9Qpw4mmk0XeeLPIziwjfhzbC4rgXs7dC4bvr6zJtBYDqVB0NOejtcXqPnFFRmfxOBrVfc4RVLvgnc6hDKJL44CJPgdxBKsJz3MAMLhLxtQYhPxKc1BIYyY43xJgyaIr1j2FfcM") { (success) in
+        networkManager.getGroupItems { (success) in
             print(success)
         }
+     
         suscribedItems.append(Item(inStock: true, name: "Eggs", suscribedUsers: ["1"]))
         suscribedItems.append(Item(inStock: true, name: "Banana", suscribedUsers: ["1"]))
         suscribedItems.append(Item(inStock: false, name: "Apple", suscribedUsers: ["1"]))
