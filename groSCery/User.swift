@@ -8,12 +8,12 @@
 
 import Foundation
 
-class User {
+class User: Codable {
     var email: String
     var name: String
-    var groupID: String
+    var groupID: String?
     
-    init(email: String, name: String, groupID: String) {
+    init(email: String, name: String, groupID: String?) {
         self.email = email
         self.name = name
         self.groupID = groupID

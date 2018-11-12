@@ -198,7 +198,6 @@
         <!--Login View Controller-->
         <scene sceneID="0pk-V7-PIf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fza-8W-EzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="7FG-Lt-xTa" customClass="LoginViewController" customModule="groSCery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LDX-tj-0Pr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -251,6 +250,7 @@
                         <segue destination="TiA-Gk-zuU" kind="show" identifier="LoginToGroceryListSegueID" id="Afw-Nh-kk4"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fza-8W-EzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3422" y="103"/>
         </scene>
@@ -598,8 +598,6 @@
         <!--Add Item View Controller-->
         <scene sceneID="TDf-Uj-B8e">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ep7-Uf-VHU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="9zN-Jj-V0O" userLabel="Exit" sceneMemberID="exit"/>
                 <viewController id="NkQ-fh-csU" customClass="AddItemViewController" customModule="groSCery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Psd-I9-Lev">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -651,6 +649,8 @@
                         <segue destination="9zN-Jj-V0O" kind="unwind" identifier="unwindSegueToGroupID" unwindAction="unwindToVC1WithSegue:" id="H1q-y8-TaR"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ep7-Uf-VHU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9zN-Jj-V0O" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="7605.6000000000004" y="765.51724137931035"/>
         </scene>
@@ -722,6 +722,6 @@
         <image name="Logo" width="518" height="518"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0aT-Qd-3d9"/>
+        <segue reference="Afw-Nh-kk4"/>
     </inferredMetricsTieBreakers>
 </document>

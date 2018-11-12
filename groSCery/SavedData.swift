@@ -129,6 +129,23 @@ class SavedData {
         }
     }
     
+    var currentUser: User {
+        set {
+            let encoder = JSONEncoder()
+            if let user = try? encoder.encode(newValue) {
+                UserDefaults.standard.set(user, forKey: "currentUserKey")
+            }
+        } get {
+            if let userData = UserDefaults.standard.value(forKey: "currentUserKey") as? Data {
+                let decoder = JSONDecoder()
+                if let user = try? decoder.decode(User.self, from: userData) as User {
+                    return user
+                }
+            }
+            return User(email: "", name: "", groupID: "")
+        }
+    }
+    
  
 
 }

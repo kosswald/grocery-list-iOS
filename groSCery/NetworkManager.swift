@@ -200,13 +200,13 @@ class NetworkManager {
     
     // Users
     
-    func getUserDetails(accessToken: String) {
+    func getUserDetails(completion: @escaping (Bool) -> Void) {
         let urlPath: String = "https://201.kristofs.app/api/users/details"
         if let submitURL = URL(string: urlPath) {
             var request = URLRequest(url: submitURL)
             request.httpMethod = "GET"
             let session = URLSession.shared
-            let accessTokenBearer = "Bearer " + accessToken
+            let accessTokenBearer = "Bearer " + SavedData().accessToken
             request.setValue(accessTokenBearer, forHTTPHeaderField: "Authorization")
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 
@@ -215,13 +215,31 @@ class NetworkManager {
                     do {
                         print(data)
                         let dataJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
-                        if let dictonary = dataJSON["success"] as? [String: Any] {
-                            print(dictonary)
+                        if let userDict = dataJSON["success"] as? [String: Any] {
+                            print(userDict)
+                            var userEmail = ""
+                            var userName = ""
+                            var groupID: String? = nil
+                            if let email = userDict["email"] as? String {
+                                userEmail = email
+                            }
+                            if let name = userDict["name"] as? String {
+                                userName = name
+                            }
+                            if let groupIdentifiter = userDict["group_id"] as? String {
+                                groupID = groupIdentifiter
+                            }
+                            SavedData().currentUser = User(email: userEmail, name: userName, groupID: groupID)
+                            completion(true)
                             
+                        } else {
+                            completion(false)
+                            print("couldn't parse")
                         }
                         print(dataJSON)
                         
                     } catch {
+                        completion(false)
                         print(error)
                     }
                 }
