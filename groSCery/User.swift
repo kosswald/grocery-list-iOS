@@ -11,9 +11,9 @@ import Foundation
 class User: Codable {
     var email: String
     var name: String
-    var groupID: String?
+    var groupID: Int?
     
-    init(email: String, name: String, groupID: String?) {
+    init(email: String, name: String, groupID: Int?) {
         self.email = email
         self.name = name
         self.groupID = groupID

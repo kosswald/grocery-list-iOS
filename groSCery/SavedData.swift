@@ -142,7 +142,7 @@ class SavedData {
                     return user
                 }
             }
-            return User(email: "", name: "", groupID: "")
+            return User(email: "", name: "", groupID: nil)
         }
     }
     

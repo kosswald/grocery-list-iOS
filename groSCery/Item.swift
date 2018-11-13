@@ -12,10 +12,12 @@ class Item: Codable {
     var inStock: Bool
     var name: String
     var suscribedUsers: [String]
+    var itemID: Int
     
-    init(inStock: Bool, name: String, suscribedUsers: [String]) {
+    init(inStock: Bool, name: String, suscribedUsers: [String], itemID: Int) {
         self.inStock = inStock
         self.name = name
         self.suscribedUsers = suscribedUsers
+        self.itemID = itemID
     }
 }

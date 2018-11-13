@@ -12,7 +12,7 @@ class NetworkManager {
     
     // Groups
     
-    func getGroupItems(completion: @escaping(Bool) -> Void) {
+    func getGroupItems(completion: @escaping(Bool, [Item]) -> Void) {
         let urlPath: String = "https://201.kristofs.app/api/groups/items"
         if let submitURL = URL(string: urlPath) {
             var request = URLRequest(url: submitURL)
@@ -27,14 +27,31 @@ class NetworkManager {
                     do {
                         print(data)
                         let dataJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
-                        
-                        if let dictonary = dataJSON["success"] as? [[String: Any]] {
-                            print(dictonary)
+                        var groupItems = [Item]()
+                        if let items = dataJSON["success"] as? [[String: Any]] {
+                            for item in items {
+                                var name = "NA"
+                                var inStock = false
+                                var id = -1
+                                if let itemName = item["name"] as? String {
+                                    name = itemName
+                                }
+                                if let itemInStock = item["in_stock"] as? Bool {
+                                    inStock = itemInStock
+                                }
+                                if let itemID = item["id"] as? Int {
+                                    id = itemID
+                                }
+                                let newItem = Item(inStock: inStock, name: name, suscribedUsers: [], itemID: id)
+                                groupItems.append(newItem)
+                            }
+                            completion(true, groupItems)
                             
                         }
                         print(dataJSON)
                         
                     } catch {
+                        completion(false, [])
                         print(error)
                     }
                 }
@@ -216,17 +233,18 @@ class NetworkManager {
                         print(data)
                         let dataJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
                         if let userDict = dataJSON["success"] as? [String: Any] {
+                            
                             print(userDict)
                             var userEmail = ""
                             var userName = ""
-                            var groupID: String? = nil
+                            var groupID: Int? = nil
                             if let email = userDict["email"] as? String {
                                 userEmail = email
                             }
                             if let name = userDict["name"] as? String {
                                 userName = name
                             }
-                            if let groupIdentifiter = userDict["group_id"] as? String {
+                            if let groupIdentifiter = userDict["group_id"] as? Int {
                                 groupID = groupIdentifiter
                             }
                             SavedData().currentUser = User(email: userEmail, name: userName, groupID: groupID)
@@ -248,7 +266,7 @@ class NetworkManager {
     }
     
     
-    func getUserItems(completion: @escaping(Bool) -> Void) {
+    func getUserItems(completion: @escaping(Bool, [Item]) -> Void) {
         let urlPath: String = "https://201.kristofs.app/api/users/items"
         if let submitURL = URL(string: urlPath) {
             var request = URLRequest(url: submitURL)
@@ -264,13 +282,33 @@ class NetworkManager {
                         print(data)
                         let dataJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
                         
-                        if let dictonary = dataJSON["success"] as? [[String: Any]] {
-                            print(dictonary)
+                        
+                        if let items = dataJSON["success"] as? [[String: Any]] {
+                                var groupItems = [Item]()
+                                for item in items {
+                                    var name = "NA"
+                                    var inStock = false
+                                    var id = -1
+                                    if let itemName = item["name"] as? String {
+                                        name = itemName
+                                    }
+                                    if let itemInStock = item["in_stock"] as? Bool {
+                                        inStock = itemInStock
+                                    }
+                                    if let itemID = item["id"] as? Int {
+                                        id = itemID
+                                    }
+                                    let newItem = Item(inStock: inStock, name: name, suscribedUsers: [], itemID: id)
+                                    groupItems.append(newItem)
+                                }
+                                completion(true, groupItems)
+                            
                             
                         }
                         print(dataJSON)
                         
                     } catch {
+                        completion(false, [])
                         print(error)
                     }
                 }
@@ -278,6 +316,47 @@ class NetworkManager {
         }
     }
     
+    func parseAllGroceryLists(completion: @escaping (Bool)->Void) {
+        getGroupItems { (success, groupItems) in
+            if (success) {
+                self.getUserItems(completion: { (success, userItems) in
+                    if (success) {
+                        var suscribedIDs = Set<Int>()
+                        for userItem in userItems {
+                            suscribedIDs.insert(userItem.itemID)
+                        }
+                        var unsuscribedItems = [Item]()
+                        for groupItem in groupItems {
+                            if (!suscribedIDs.contains(groupItem.itemID)) {
+                                unsuscribedItems.append(groupItem)
+                            }
+                        }
+                        SavedData().suscribedItems = userItems
+                        SavedData().unsuscribedItems = unsuscribedItems
+                        
+                        var inStockItems = [Item]()
+                        var outOfStockItems = [Item]()
+                        for suscribedItem in userItems {
+                            if (suscribedItem.inStock) {
+                                inStockItems.append(suscribedItem)
+                            } else {
+                                outOfStockItems.append(suscribedItem)
+                            }
+                        }
+                        SavedData().inStockItems = inStockItems
+                        SavedData().outOfStockItems = outOfStockItems
+                        completion(true)
+                        
+                    } else {
+                        completion(false)
+                    }
+                })
+            } else {
+                completion(false)
+            }
+        }
+    }
+ 
 
     
     //MARK: Helper Function
@@ -293,6 +372,9 @@ class NetworkManager {
         }
         return urlencoded
     }
+    
+    
+    
     
     
     

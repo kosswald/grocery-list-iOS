@@ -32,11 +32,14 @@ class LoginViewController: UIViewController {
                         SavedData().accessToken = accessToken
                         SavedData().loggedIn = true
                         NetworkManager().getUserDetails(completion: { (success) in
-                            DispatchQueue.main.async {
-                                if (success) {
-                                    self.performSegue(withIdentifier: "LoginToGroceryListSegueID", sender: nil)
+                            NetworkManager().parseAllGroceryLists(completion: { (success) in
+                                DispatchQueue.main.async {
+                                    if (success) {
+                                        self.performSegue(withIdentifier: "LoginToGroceryListSegueID", sender: nil)
+                                    }
                                 }
-                            }
+                            })
+                            
                            
                         })
                         

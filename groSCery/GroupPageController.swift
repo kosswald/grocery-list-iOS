@@ -22,21 +22,15 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkManager.getGroupItems { (success) in
-            print(success)
-        }
-     
-        suscribedItems.append(Item(inStock: true, name: "Eggs", suscribedUsers: ["1"]))
-        suscribedItems.append(Item(inStock: true, name: "Banana", suscribedUsers: ["1"]))
-        suscribedItems.append(Item(inStock: false, name: "Apple", suscribedUsers: ["1"]))
-        suscribedItems.append(Item(inStock: true, name: "Milk", suscribedUsers: ["1"]))
-        suscribedItems.append(Item(inStock: false, name: "Water", suscribedUsers: ["1"]))
-        suscribedItems.append(Item(inStock: true, name: "Cereal", suscribedUsers: ["1"]))
-        
-        notSuscribedItems.append(Item(inStock: true, name: "Cookies", suscribedUsers: ["1"]))
-        notSuscribedItems.append(Item(inStock: false, name: "Toilet Paper", suscribedUsers: ["1"]))
-        notSuscribedItems.append(Item(inStock: false, name: "Orange Juice", suscribedUsers: ["1"]))
-
+        suscribedItems = SavedData().suscribedItems
+        notSuscribedItems = SavedData().unsuscribedItems
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        suscribedItems = SavedData().suscribedItems
+        notSuscribedItems = SavedData().unsuscribedItems
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,7 +55,7 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "GroupItemsCellID")
-        var item = Item(inStock: true, name: "", suscribedUsers: [])
+        var item = Item(inStock: true, name: "", suscribedUsers: [], itemID: -1)
         if (indexPath.section == 0) {
             item = notSuscribedItems[indexPath.row]
         } else {
@@ -101,13 +95,41 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func suscribeToItem(item: Item, index: Int) {
         suscribedItems.append(item)
+        SavedData().suscribedItems.append(item)
         notSuscribedItems.remove(at: index)
+        SavedData().unsuscribedItems.remove(at: index)
+        if (item.inStock) {
+            SavedData().inStockItems.append(item)
+        } else {
+            SavedData().outOfStockItems.append(item)
+        }
         tableView.reloadData()
     }
     
     func unsuscribeItem(item: Item, index: Int) {
         suscribedItems.remove(at: index)
+        SavedData().suscribedItems.remove(at: index)
         notSuscribedItems.append(item)
+        SavedData().unsuscribedItems.append(item)
+        if (item.inStock) {
+            var i = 0
+            for inStockItem in SavedData().inStockItems {
+                if (inStockItem.itemID == item.itemID) {
+                    SavedData().inStockItems.remove(at: i)
+                    break
+                }
+                i = i + 1
+            }
+        } else {
+            var i = 0
+            for outOfStockItem in SavedData().outOfStockItems {
+                if (outOfStockItem.itemID == item.itemID) {
+                    SavedData().outOfStockItems.remove(at: i)
+                    break
+                }
+                i = i + 1
+            }
+        }
         tableView.reloadData()
     }
     
@@ -117,7 +139,7 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
             
                 NetworkManager().createNewItem(name: itemName) { (success) in
                     if (success) {
-                        self.suscribedItems.append(Item(inStock: true, name: itemName, suscribedUsers: []))
+                        self.suscribedItems.append(Item(inStock: true, name: itemName, suscribedUsers: [], itemID: -1))
                         self.tableView.reloadData()
                     } else {
                         
