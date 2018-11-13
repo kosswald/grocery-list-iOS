@@ -207,6 +207,7 @@
                         <outlet property="emailTextField" destination="NSh-V5-s1F" id="yFr-oS-xsr"/>
                         <outlet property="passwordTextField" destination="kV3-9l-Fd1" id="oWr-w0-A0d"/>
                         <segue destination="TiA-Gk-zuU" kind="show" identifier="LoginToGroceryListSegueID" id="Afw-Nh-kk4"/>
+                        <segue destination="QiM-Wt-yUe" kind="presentation" identifier="LoginToCreateJoinGroupSegueID" id="NWD-nL-mDs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fza-8W-EzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -730,6 +731,7 @@
         <image name="Logo" width="518" height="518"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Afw-Nh-kk4"/>
+        <segue reference="Uoe-bg-sxd"/>
+        <segue reference="NWD-nL-mDs"/>
     </inferredMetricsTieBreakers>
 </document>

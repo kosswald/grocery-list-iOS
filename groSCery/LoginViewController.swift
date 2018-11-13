@@ -13,6 +13,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    override func viewWillAppear(_ animated: Bool) {
+        emailTextField.text = "osswald@usc.edu"
+        passwordTextField.text = "password"
+    }
+    
     @IBAction func submitLogin(_ sender: Any) {
         if (emailTextField.text == "") {
             // show alert
@@ -32,13 +37,21 @@ class LoginViewController: UIViewController {
                         SavedData().accessToken = accessToken
                         SavedData().loggedIn = true
                         NetworkManager().getUserDetails(completion: { (success) in
-                            NetworkManager().parseAllGroceryLists(completion: { (success) in
+                            if SavedData().currentUser.groupID == nil {
                                 DispatchQueue.main.async {
-                                    if (success) {
-                                        self.performSegue(withIdentifier: "LoginToGroceryListSegueID", sender: nil)
-                                    }
+                                    self.performSegue(withIdentifier: "LoginToCreateJoinGroupSegueID", sender: nil)
                                 }
-                            })
+                            } else {
+                                NetworkManager().parseAllGroceryLists(completion: { (success) in
+                                    DispatchQueue.main.async {
+                                        if (success) {
+                                            self.performSegue(withIdentifier: "LoginToGroceryListSegueID", sender: nil)
+                                        }
+                                    }
+                                })
+                            }
+                            
+                            
                             
                            
                         })

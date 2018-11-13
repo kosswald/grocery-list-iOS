@@ -94,16 +94,27 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func suscribeToItem(item: Item, index: Int) {
-        suscribedItems.append(item)
-        SavedData().suscribedItems.append(item)
-        notSuscribedItems.remove(at: index)
-        SavedData().unsuscribedItems.remove(at: index)
-        if (item.inStock) {
-            SavedData().inStockItems.append(item)
-        } else {
-            SavedData().outOfStockItems.append(item)
+        networkManager.suscribeToItem(itemID: item.itemID) { (success) in
+            if (success) {
+                DispatchQueue.main.async {
+                    self.suscribedItems.append(item)
+                    SavedData().suscribedItems.append(item)
+                    self.notSuscribedItems.remove(at: index)
+                    SavedData().unsuscribedItems.remove(at: index)
+                    if (item.inStock) {
+                        SavedData().inStockItems.append(item)
+                    } else {
+                        SavedData().outOfStockItems.append(item)
+                    }
+                    self.tableView.reloadData()
+                }
+            } else {
+                let alert = UIAlertController(title: "Suscribe Error", message: "Unable to suscrbie to item.", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
-        tableView.reloadData()
+       
     }
     
     func unsuscribeItem(item: Item, index: Int) {

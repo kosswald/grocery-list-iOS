@@ -114,6 +114,8 @@ class NetworkManager {
             request.httpMethod = "POST"
             request.httpBody = postData
             request.timeoutInterval = 10
+            let accessTokenBearer = "Bearer " + SavedData().accessToken
+            request.setValue(accessTokenBearer, forHTTPHeaderField: "Authorization")
             let session = URLSession.shared
             session.dataTask(with: request, completionHandler: { (data, response, error) in
                 if error != nil {
@@ -128,6 +130,38 @@ class NetworkManager {
                             completion(false)
                         }
                     } catch {
+                        print(error)
+                    }
+                }
+            }).resume()
+        }
+    }
+    
+    func suscribeToItem(itemID: Int, completion: @escaping (Bool)->Void) {
+        let urlPath: String = "https://201.kristofs.app/api/items/subscribe/\(itemID)"
+        if let submitURL = URL(string: urlPath) {
+            var request = URLRequest(url: submitURL)
+            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.httpMethod = "POST"
+            request.timeoutInterval = 10
+            let session = URLSession.shared
+            session.dataTask(with: request, completionHandler: { (data, response, error) in
+                if error != nil {
+                    print(error)
+                }
+                if response != nil {
+                    print(response)
+                }
+                if let data = data {
+                    do {
+                        let successJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
+                        if let success = successJSON["success"] as? [String: Any]{
+                            completion(true)
+                        } else {
+                            completion(false)
+                        }
+                    } catch {
+                        completion(false)
                         print(error)
                     }
                 }

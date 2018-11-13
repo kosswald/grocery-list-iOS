@@ -104,16 +104,22 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     // MARK: Add Remove Item Delegate
     func didBuyItem(item: Item, index: Int, price: String) {
+        item.inStock = true
         itemsInStock.append(item)
         itemsOutOfStock.remove(at: index)
+        SavedData().inStockItems.append(item)
+        SavedData().outOfStockItems.remove(at: index)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
     func didMarkItemOutOfStock(item: Item, index: Int) {
+        item.inStock = false
         itemsOutOfStock.append(item)
         itemsInStock.remove(at: index)
+        SavedData().outOfStockItems.append(item)
+        SavedData().outOfStockItems.remove(at: index)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
