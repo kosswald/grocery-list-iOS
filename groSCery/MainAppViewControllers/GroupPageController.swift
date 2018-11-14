@@ -162,16 +162,25 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
         if let addItemVC = segue.source as? AddItemViewController {
             if let itemName = addItemVC.itemNameTextField.text {
                 
-                NetworkManager().createNewItem(name: itemName) { (success) in
-                    if (success) {
-                        self.suscribedItems.append(Item(inStock: true, name: itemName, suscribedUsers: [], itemID: -1))
-                        self.tableView.reloadData()
-                    } else {
-                        
+                NetworkManager().createNewItem(name: itemName) { (success, item) in
+                    DispatchQueue.main.async {
+                        if (success) {
+                            if let item = item {
+                                self.suscribedItems.append(item)
+                                SavedData().suscribedItems.append(item)
+                                SavedData().inStockItems.append(item)
+                                self.tableView.reloadData()
+                            }
+                          
+                        } else {
+                            let alert = UIAlertController(title: "Add Item Error", message: "Unable to add item.", preferredStyle: UIAlertController.Style.alert)
+                            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
                     }
+                   
                 }
             }
-            
         }
         
     }

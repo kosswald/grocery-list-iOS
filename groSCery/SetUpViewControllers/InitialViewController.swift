@@ -25,5 +25,10 @@ class InitialViewController: UIViewController {
 //        }
     }
     
+    @IBAction func unwindInitialVC(segue:UIStoryboardSegue) {
+        SavedData().loggedIn = false
+        
+    }
+    
  
 }

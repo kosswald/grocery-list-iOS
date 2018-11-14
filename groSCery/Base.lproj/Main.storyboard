@@ -583,9 +583,11 @@
                         <outlet property="emailLabel" destination="MjU-3Y-fii" id="Qog-E1-g2T"/>
                         <outlet property="groupIDLabel" destination="JEV-Ct-Ygr" id="Zez-qb-93i"/>
                         <outlet property="nameLabel" destination="mnj-Tx-kKl" id="h9Z-r5-bPg"/>
+                        <segue destination="bqb-fZ-wfq" kind="unwind" identifier="unwindToInitialVCSegueID" unwindAction="unwindInitialVCWithSegue:" id="bwX-UZ-uSs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Phi-La-bF0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bqb-fZ-wfq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6286" y="2982"/>
         </scene>

@@ -102,7 +102,7 @@ class NetworkManager {
     
     // Items
     
-    func createNewItem(name: String, completion: @escaping (Bool) -> Void) {
+    func createNewItem(name: String, completion: @escaping (Bool, Item?) -> Void) {
         let parameters : [String : Any] = ["name" : name]
         
         let postString = dictToString(paramaterDict: parameters)
@@ -124,10 +124,23 @@ class NetworkManager {
                 if let data = data {
                     do {
                         let successJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
-                        if let success = successJSON["success"] {
-                            completion(true)
+                        if let item = successJSON["success"] as? [String: Any] {
+                            var name = "NA"
+                            var inStock = false
+                            var id = -1
+                            if let itemName = item["name"] as? String {
+                                name = itemName
+                            }
+                            if let itemInStock = item["in_stock"] as? Bool {
+                                inStock = itemInStock
+                            }
+                            if let itemID = item["id"] as? Int {
+                                id = itemID
+                            }
+                            let newItem = Item(inStock: inStock, name: name, suscribedUsers: [], itemID: id)
+                            completion(true, newItem)
                         } else {
-                            completion(false)
+                            completion(false, nil)
                         }
                     } catch {
                         print(error)
@@ -289,6 +302,37 @@ class NetworkManager {
         }
     }
     
+    func logoutUser(completion: @escaping (Bool) -> Void) {
+        let urlPath: String = "https://201.kristofs.app/api/logout"
+        if let submitURL = URL(string: urlPath) {
+            var request = URLRequest(url: submitURL)
+            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.httpMethod = "POST"
+            request.timeoutInterval = 10
+            let accessTokenBearer = "Bearer " + SavedData().accessToken
+            request.setValue(accessTokenBearer, forHTTPHeaderField: "Authorization")
+            let session = URLSession.shared
+            session.dataTask(with: request, completionHandler: { (data, response, error) in
+                if error != nil {
+                    completion(false)
+                }
+                if let data = data {
+                    do {
+                        let successJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
+                        if let _ = successJSON["success"] {
+                            completion(true)
+                        } else {
+                            completion(false)
+                        }
+                    } catch {
+                        completion(false)
+                        print(error)
+                    }
+                }
+            }).resume()
+        }
+    }
+    
     func registerUser(name: String, email: String, password: String, completion: @escaping (Bool, String) -> Void) {
         let parameters : [String : Any] = ["name": name,
                                            "email" : email,
@@ -431,6 +475,8 @@ class NetworkManager {
             }).resume()
         }
     }
+    
+    // Helper method to parse grocery lists
     
     func parseAllGroceryLists(completion: @escaping (Bool)->Void) {
         getGroupItems { (success, groupItems) in

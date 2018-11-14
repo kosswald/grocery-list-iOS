@@ -14,7 +14,6 @@ class ProfilePageViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var groupIDLabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let user = SavedData().currentUser
@@ -25,11 +24,20 @@ class ProfilePageViewController: UIViewController {
         } else {
             groupIDLabel.text = "Group ID: NA"
         }
-        
-
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func logoutButtonClicked(_ sender: Any) {
+        NetworkManager().logoutUser { (success) in
+            DispatchQueue.main.async {
+                if (success) {
+                    self.performSegue(withIdentifier: "unwindToInitialVCSegueID", sender: nil)
+                } else {
+                    let alert = UIAlertController(title: "Log out error", message: "Unable to log out.", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            
+        }
     }
 }
