@@ -15,21 +15,21 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var user: User!
     var allItems = [Item]()
-    var suscribedItems = [Item]()
-    var notSuscribedItems = [Item]()
+    var subscribedItems = [Item]()
+    var notSubscribedItems = [Item]()
     let networkManager = NetworkManager()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        suscribedItems = SavedData().suscribedItems
-        notSuscribedItems = SavedData().unsuscribedItems
+        subscribedItems = SavedData().suscribedItems
+        notSubscribedItems = SavedData().unsuscribedItems
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        suscribedItems = SavedData().suscribedItems
-        notSuscribedItems = SavedData().unsuscribedItems
+        subscribedItems = SavedData().suscribedItems
+        notSubscribedItems = SavedData().unsuscribedItems
         tableView.reloadData()
     }
     
@@ -39,17 +39,17 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (section == 0) {
-            return "Not Suscribed"
+            return "Not Subscribed"
         } else {
-            return "Suscribed"
+            return "Subscribed"
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0) {
-            return notSuscribedItems.count
+            return notSubscribedItems.count
         } else {
-            return suscribedItems.count
+            return subscribedItems.count
         }
     }
     
@@ -57,9 +57,9 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = UITableViewCell(style: .default, reuseIdentifier: "GroupItemsCellID")
         var item = Item(inStock: true, name: "", suscribedUsers: [], itemID: -1)
         if (indexPath.section == 0) {
-            item = notSuscribedItems[indexPath.row]
+            item = notSubscribedItems[indexPath.row]
         } else {
-            item = suscribedItems[indexPath.row]
+            item = subscribedItems[indexPath.row]
         }
         cell.textLabel?.text = item.name
         return cell
@@ -67,8 +67,8 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath.section == 0) {
-            let item = notSuscribedItems[indexPath.row]
-            let alert = UIAlertController(title: item.name, message: "Suscribe to \(item.name)", preferredStyle: UIAlertController.Style.alert)
+            let item = notSubscribedItems[indexPath.row]
+            let alert = UIAlertController(title: item.name, message: "Subscribe to \(item.name)", preferredStyle: UIAlertController.Style.alert)
             let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
                 print("ACTION 3 selected!")
                 self.suscribeToItem(item: item, index: indexPath.row)
@@ -79,8 +79,8 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
-            let item = suscribedItems[indexPath.row]
-            let alert = UIAlertController(title: item.name, message: "Unsuscribe to \(item.name)", preferredStyle: UIAlertController.Style.alert)
+            let item = subscribedItems[indexPath.row]
+            let alert = UIAlertController(title: item.name, message: "Unsubscribe to \(item.name)", preferredStyle: UIAlertController.Style.alert)
             let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
                 print("ACTION 3 selected!")
                 self.unsuscribeItem(item: item, index: indexPath.row)
@@ -98,9 +98,9 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
             DispatchQueue.main.async {
                 
                 if (success) {
-                    self.suscribedItems.append(item)
+                    self.subscribedItems.append(item)
                     SavedData().suscribedItems.append(item)
-                    self.notSuscribedItems.remove(at: index)
+                    self.notSubscribedItems.remove(at: index)
                     SavedData().unsuscribedItems.remove(at: index)
                     if (item.inStock) {
                         SavedData().inStockItems.append(item)
@@ -110,7 +110,7 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
                     self.tableView.reloadData()
                     
                 } else {
-                    let alert = UIAlertController(title: "Suscribe Error", message: "Unable to subscribe to item.", preferredStyle: UIAlertController.Style.alert)
+                    let alert = UIAlertController(title: "Subscribe Error", message: "Unable to subscribe to item.", preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
@@ -124,9 +124,9 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
         networkManager.unsubscribeFromItem(itemID: item.itemID) { (success) in
             DispatchQueue.main.async {
                 if (success) {
-                    self.suscribedItems.remove(at: index)
+                    self.subscribedItems.remove(at: index)
                     SavedData().suscribedItems.remove(at: index)
-                    self.notSuscribedItems.append(item)
+                    self.notSubscribedItems.append(item)
                     SavedData().unsuscribedItems.append(item)
                     if (item.inStock) {
                         var i = 0
@@ -166,7 +166,7 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
                     DispatchQueue.main.async {
                         if (success) {
                             if let item = item {
-                                self.suscribedItems.append(item)
+                                self.subscribedItems.append(item)
                                 SavedData().suscribedItems.append(item)
                                 SavedData().inStockItems.append(item)
                                 self.tableView.reloadData()
@@ -184,10 +184,6 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
     }
-    
-    
-    
-    
     
 }
 

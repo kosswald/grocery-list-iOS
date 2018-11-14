@@ -24,7 +24,21 @@ class CreateGroupViewController: UIViewController {
                 DispatchQueue.main.async {
                     if (success) {
                         print(groupID)
-                        self.performSegue(withIdentifier: "CreateGroupToListSegueID", sender: nil)
+                        let user = SavedData().currentUser
+                        user.groupID = groupID
+                        SavedData().currentUser = user
+//                        SavedData().currentUser.groupID = groupID (Why doesn't this work?)
+                        NetworkManager().parseAllGroceryLists(completion: { (success) in
+                            DispatchQueue.main.async {
+                                if (success) {
+                                    self.performSegue(withIdentifier: "CreateGroupToListSegueID", sender: nil)
+                                } else {
+                                    let alert = UIAlertController(title: "Error.", message: "Unable to parse items.", preferredStyle: UIAlertController.Style.alert)
+                                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                                    self.present(alert, animated: true, completion: nil)
+                                }
+                            }
+                        })
                     } else {
                         let alert = UIAlertController(title: "Error.", message: "Unable to create group.", preferredStyle: UIAlertController.Style.alert)
                         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))

@@ -59,9 +59,36 @@ class NetworkManager {
         }
     }
     
-    func createNewGroup(name: String, completion: @escaping (Bool, String) -> Void) {
+    func subscribeUserToGroup(groupID: Int, completion: @escaping(Bool)->Void) {
+        let urlPath: String = "https://201.kristofs.app/api/groups/subscribe/\(groupID)"
+        if let submitURL = URL(string: urlPath) {
+            var request = URLRequest(url: submitURL)
+            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.httpMethod = "POST"
+            request.timeoutInterval = 10
+            let accessTokenBearer = "Bearer " + SavedData().accessToken
+            request.setValue(accessTokenBearer, forHTTPHeaderField: "Authorization")
+            let session = URLSession.shared
+            session.dataTask(with: request, completionHandler: { (data, response, error) in
+                if let data = data {
+                    do {
+                        let successJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
+                        if let _ = successJSON["success"] {
+                            completion(true)
+                        } else {
+                            completion(false)
+                        }
+                    } catch {
+                        completion(false)
+                        print(error)
+                    }
+                }
+            }).resume()
+        }
+    }
+    
+    func createNewGroup(name: String, completion: @escaping (Bool, Int) -> Void) {
         let parameters : [String : Any] = ["name" : name]
-        
         let postString = dictToString(paramaterDict: parameters)
         let postData = postString.data(using: String.Encoding.ascii, allowLossyConversion: true)!
         let urlPath: String = "https://201.kristofs.app/api/groups/create"
@@ -76,17 +103,18 @@ class NetworkManager {
             let session = URLSession.shared
             session.dataTask(with: request, completionHandler: { (data, response, error) in
                 if error != nil {
-                    completion(false, "")
+                    completion(false, -1)
                 }
+                
                 if let data = data {
                     do {
                         let successJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
-                        if let successDict = successJSON["success"] as? [String: String] {
-                            if let groupID = successDict["id"] {
+                        if let successDict = successJSON["success"] as? [String: Any] {
+                            if let groupID = successDict["id"] as? Int{
                                 completion(true, groupID)
                             }
                         } else {
-                            completion(false, "")
+                            completion(false, -1)
                         }
                     } catch {
                         print(error)
@@ -94,10 +122,6 @@ class NetworkManager {
                 }
             }).resume()
         }
-    }
-    
-    func suscribeToGroup(name: String) {
-        
     }
     
     // Items
@@ -487,6 +511,7 @@ class NetworkManager {
                         for userItem in userItems {
                             suscribedIDs.insert(userItem.itemID)
                         }
+                        
                         var unsuscribedItems = [Item]()
                         for groupItem in groupItems {
                             if (!suscribedIDs.contains(groupItem.itemID)) {

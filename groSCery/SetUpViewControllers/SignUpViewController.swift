@@ -54,10 +54,14 @@ class SignUpViewController: UIViewController {
                 DispatchQueue.main.async {
                     if (success) {
                         SavedData().accessToken = accessToken
+                        NetworkManager().getUserDetails(completion: { (success) in
+                            DispatchQueue.main.async {
+                                self.performSegue(withIdentifier: "SignupToGroupPageID", sender: nil)
+                            }
+                        })
                         print("Sign up worked!!!!!")
                         print(accessToken)
                         
-                        self.performSegue(withIdentifier: "SignupToGroupPageID", sender: nil)
                         
                     } else {
                         let alert = UIAlertController(title: "Sign Up Error", message: "User already exists.", preferredStyle: UIAlertController.Style.alert)

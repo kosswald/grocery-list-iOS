@@ -263,10 +263,10 @@
             </objects>
             <point key="canvasLocation" x="1614" y="1025"/>
         </scene>
-        <!--View Controller-->
+        <!--Join Group View Controller-->
         <scene sceneID="Mtf-2y-eki">
             <objects>
-                <viewController id="tnU-TR-dLv" sceneMemberID="viewController">
+                <viewController id="tnU-TR-dLv" customClass="JoinGroupViewController" customModule="groSCery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZLb-Ed-oZ7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -281,11 +281,14 @@
                                 <rect key="frame" x="37.666666666666657" y="190.66666666666666" width="300" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djD-GE-bfy">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djD-GE-bfy">
                                 <rect key="frame" x="163" y="260.66666666666669" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitJoinGroup:" destination="tnU-TR-dLv" eventType="touchUpInside" id="6I2-ID-JEC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -296,16 +299,18 @@
                             <constraint firstItem="Dti-jo-PW1" firstAttribute="centerY" secondItem="Pfe-7l-5er" secondAttribute="centerY" multiplier="0.5" id="gld-7j-v23"/>
                             <constraint firstItem="Dti-jo-PW1" firstAttribute="width" secondItem="ZLb-Ed-oZ7" secondAttribute="width" multiplier="0.8" id="kQu-bW-Vl5"/>
                             <constraint firstItem="2k8-9p-PXp" firstAttribute="centerY" secondItem="Pfe-7l-5er" secondAttribute="centerY" multiplier="0.3" id="ofj-q6-ZnF"/>
+                            <constraint firstItem="djD-GE-bfy" firstAttribute="centerX" secondItem="Pfe-7l-5er" secondAttribute="centerX" id="wmV-Pf-EPE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pfe-7l-5er"/>
                     </view>
                     <connections>
-                        <segue destination="TiA-Gk-zuU" kind="show" id="ZFX-zN-1f4"/>
+                        <outlet property="groupIDTextField" destination="Dti-jo-PW1" id="0EL-qb-Tda"/>
+                        <segue destination="TiA-Gk-zuU" kind="show" identifier="JoinGroupToGroceryListSegueID" id="ZFX-zN-1f4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LN3-tw-Lnh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2502" y="1025"/>
+            <point key="canvasLocation" x="2501.5999999999999" y="1024.8768472906404"/>
         </scene>
         <!--Join Create Group View Controller-->
         <scene sceneID="XN5-2R-9jf">
@@ -733,7 +738,7 @@
         <image name="Logo" width="518" height="518"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uoe-bg-sxd"/>
+        <segue reference="ZFX-zN-1f4"/>
         <segue reference="NWD-nL-mDs"/>
     </inferredMetricsTieBreakers>
 </document>
