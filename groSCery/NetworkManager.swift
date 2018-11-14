@@ -144,18 +144,14 @@ class NetworkManager {
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             request.httpMethod = "POST"
             request.timeoutInterval = 10
+            let accessTokenBearer = "Bearer " + SavedData().accessToken
+            request.setValue(accessTokenBearer, forHTTPHeaderField: "Authorization")
             let session = URLSession.shared
             session.dataTask(with: request, completionHandler: { (data, response, error) in
-                if error != nil {
-                    print(error)
-                }
-                if response != nil {
-                    print(response)
-                }
                 if let data = data {
                     do {
                         let successJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
-                        if let success = successJSON["success"] as? [String: Any]{
+                        if let _ = successJSON["success"] {
                             completion(true)
                         } else {
                             completion(false)
@@ -168,6 +164,92 @@ class NetworkManager {
             }).resume()
         }
     }
+    
+    func unsubscribeFromItem(itemID: Int, completion: @escaping (Bool)->Void) {
+        let urlPath: String = "https://201.kristofs.app/api/items/unsubscribe/\(itemID)"
+        if let submitURL = URL(string: urlPath) {
+            var request = URLRequest(url: submitURL)
+            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.httpMethod = "POST"
+            request.timeoutInterval = 10
+            let accessTokenBearer = "Bearer " + SavedData().accessToken
+            request.setValue(accessTokenBearer, forHTTPHeaderField: "Authorization")
+            let session = URLSession.shared
+            session.dataTask(with: request, completionHandler: { (data, response, error) in
+                if let data = data {
+                    do {
+                        let successJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
+                        if let _ = successJSON["success"] {
+                            completion(true)
+                        } else {
+                            completion(false)
+                        }
+                    } catch {
+                        completion(false)
+                        print(error)
+                    }
+                }
+            }).resume()
+        }
+    }
+    
+    func markItemInStock(itemID: Int, completion: @escaping (Bool)->Void) {
+        let urlPath: String = "https://201.kristofs.app/api/items/in-stock/\(itemID)"
+        if let submitURL = URL(string: urlPath) {
+            var request = URLRequest(url: submitURL)
+            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.httpMethod = "POST"
+            request.timeoutInterval = 10
+            let accessTokenBearer = "Bearer " + SavedData().accessToken
+            request.setValue(accessTokenBearer, forHTTPHeaderField: "Authorization")
+            let session = URLSession.shared
+            session.dataTask(with: request, completionHandler: { (data, response, error) in
+                if let data = data {
+                    do {
+                        let successJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
+                        if let _ = successJSON["success"] {
+                            completion(true)
+                        } else {
+                            completion(false)
+                        }
+                    } catch {
+                        completion(false)
+                        print(error)
+                    }
+                }
+            }).resume()
+        }
+    }
+    
+    func markItemOutOfStock(itemID: Int, completion: @escaping (Bool)->Void) {
+        let urlPath: String = "https://201.kristofs.app/api/items/out-of-stock/\(itemID)"
+        if let submitURL = URL(string: urlPath) {
+            var request = URLRequest(url: submitURL)
+            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.httpMethod = "POST"
+            request.timeoutInterval = 10
+            let accessTokenBearer = "Bearer " + SavedData().accessToken
+            request.setValue(accessTokenBearer, forHTTPHeaderField: "Authorization")
+            let session = URLSession.shared
+            session.dataTask(with: request, completionHandler: { (data, response, error) in
+                if let data = data {
+                    do {
+                        let successJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
+                        if let _ = successJSON["success"] {
+                            completion(true)
+                        } else {
+                            completion(false)
+                        }
+                    } catch {
+                        completion(false)
+                        print(error)
+                    }
+                }
+            }).resume()
+        }
+    }
+    
+    
     
     // Login, Logout, Registration
     

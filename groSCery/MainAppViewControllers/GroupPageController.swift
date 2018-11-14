@@ -95,8 +95,9 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func suscribeToItem(item: Item, index: Int) {
         networkManager.suscribeToItem(itemID: item.itemID) { (success) in
-            if (success) {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                
+                if (success) {
                     self.suscribedItems.append(item)
                     SavedData().suscribedItems.append(item)
                     self.notSuscribedItems.remove(at: index)
@@ -107,47 +108,60 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
                         SavedData().outOfStockItems.append(item)
                     }
                     self.tableView.reloadData()
+                    
+                } else {
+                    let alert = UIAlertController(title: "Suscribe Error", message: "Unable to subscribe to item.", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
-            } else {
-                let alert = UIAlertController(title: "Suscribe Error", message: "Unable to suscrbie to item.", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
             }
+            
         }
-       
+        
     }
     
     func unsuscribeItem(item: Item, index: Int) {
-        suscribedItems.remove(at: index)
-        SavedData().suscribedItems.remove(at: index)
-        notSuscribedItems.append(item)
-        SavedData().unsuscribedItems.append(item)
-        if (item.inStock) {
-            var i = 0
-            for inStockItem in SavedData().inStockItems {
-                if (inStockItem.itemID == item.itemID) {
-                    SavedData().inStockItems.remove(at: i)
-                    break
+        networkManager.unsubscribeFromItem(itemID: item.itemID) { (success) in
+            DispatchQueue.main.async {
+                if (success) {
+                    self.suscribedItems.remove(at: index)
+                    SavedData().suscribedItems.remove(at: index)
+                    self.notSuscribedItems.append(item)
+                    SavedData().unsuscribedItems.append(item)
+                    if (item.inStock) {
+                        var i = 0
+                        for inStockItem in SavedData().inStockItems {
+                            if (inStockItem.itemID == item.itemID) {
+                                SavedData().inStockItems.remove(at: i)
+                                break
+                            }
+                            i = i + 1
+                        }
+                    } else {
+                        var i = 0
+                        for outOfStockItem in SavedData().outOfStockItems {
+                            if (outOfStockItem.itemID == item.itemID) {
+                                SavedData().outOfStockItems.remove(at: i)
+                                break
+                            }
+                            i = i + 1
+                        }
+                    }
+                    self.tableView.reloadData()
+                    
+                } else {
+                    let alert = UIAlertController(title: "Unsuscribe Error", message: "Unable to unsuscribe to item.", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
-                i = i + 1
-            }
-        } else {
-            var i = 0
-            for outOfStockItem in SavedData().outOfStockItems {
-                if (outOfStockItem.itemID == item.itemID) {
-                    SavedData().outOfStockItems.remove(at: i)
-                    break
-                }
-                i = i + 1
             }
         }
-        tableView.reloadData()
     }
     
     @IBAction func unwindToVC1(segue:UIStoryboardSegue) {
         if let addItemVC = segue.source as? AddItemViewController {
             if let itemName = addItemVC.itemNameTextField.text {
-            
+                
                 NetworkManager().createNewItem(name: itemName) { (success) in
                     if (success) {
                         self.suscribedItems.append(Item(inStock: true, name: itemName, suscribedUsers: [], itemID: -1))
@@ -161,7 +175,7 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
     }
-
+    
     
     
     

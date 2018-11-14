@@ -12,7 +12,6 @@
 		576DEFD08ED897EB67C6901F /* Pods_groSCeryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC664E4AA67B50A93D79300 /* Pods_groSCeryTests.framework */; };
 		6DAE84C0217BC18B007E480F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DAE84BF217BC18B007E480F /* GoogleService-Info.plist */; };
 		A3EEF4462178FD3600FE09C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF4452178FD3600FE09C5 /* AppDelegate.swift */; };
-		A3EEF4482178FD3600FE09C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF4472178FD3600FE09C5 /* ViewController.swift */; };
 		A3EEF44B2178FD3600FE09C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3EEF4492178FD3600FE09C5 /* Main.storyboard */; };
 		A3EEF44D2178FD3700FE09C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3EEF44C2178FD3700FE09C5 /* Assets.xcassets */; };
 		A3EEF4502178FD3700FE09C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3EEF44E2178FD3700FE09C5 /* LaunchScreen.storyboard */; };
@@ -61,7 +60,6 @@
 		9BE40DFE0FF3FBF3C3535B69 /* Pods-groSCery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-groSCery.release.xcconfig"; path = "Pods/Target Support Files/Pods-groSCery/Pods-groSCery.release.xcconfig"; sourceTree = "<group>"; };
 		A3EEF4422178FD3600FE09C5 /* groSCery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = groSCery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3EEF4452178FD3600FE09C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A3EEF4472178FD3600FE09C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A3EEF44A2178FD3600FE09C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A3EEF44C2178FD3700FE09C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3EEF44F2178FD3700FE09C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -159,24 +157,12 @@
 			isa = PBXGroup;
 			children = (
 				A3EEF4452178FD3600FE09C5 /* AppDelegate.swift */,
-				A3EEF4472178FD3600FE09C5 /* ViewController.swift */,
-				ED6E04062186680D0081AABD /* BoughtItemViewController.swift */,
-				ED6E04052186680D0081AABD /* GroceryListViewController.swift */,
 				A3EEF4492178FD3600FE09C5 /* Main.storyboard */,
-				ED569D4921995B6A00F0EFB0 /* ProfilePageViewController.swift */,
-				ED9785B02199064F00ED165D /* CreateGroupViewController.swift */,
-				ED9785B22199065F00ED165D /* JoinGroupViewController.swift */,
-				ED9785AC2198F6CD00ED165D /* SignUpViewController.swift */,
-				ED9785AA2198E56D00ED165D /* LoginViewController.swift */,
-				ED9785A82198E08A00ED165D /* InitialViewController.swift */,
-				ED9785A22198B22600ED165D /* AddItemViewController.swift */,
+				ED287434219BC54900EE0ECA /* SetUpViewControllers */,
+				ED287435219BC55B00EE0ECA /* MainAppViewControllers */,
 				ED9785A42198D03B00ED165D /* NetworkManager.swift */,
-				38BB4BF4218C075B00230878 /* GroupPageController.swift */,
-				ED9785AE2199010700ED165D /* JoinCreateGroupViewController.swift */,
 				ED9785A62198D66300ED165D /* SavedData.swift */,
-				ED6E03FF218668030081AABD /* Group.swift */,
-				ED6E0401218668030081AABD /* Item.swift */,
-				ED6E0400218668030081AABD /* User.swift */,
+				ED287433219BC50A00EE0ECA /* Model */,
 				A3EEF44C2178FD3700FE09C5 /* Assets.xcassets */,
 				A3EEF44E2178FD3700FE09C5 /* LaunchScreen.storyboard */,
 				A3EEF4512178FD3700FE09C5 /* Info.plist */,
@@ -214,6 +200,41 @@
 				B52940DB7D17BECF5C5AE6F5 /* Pods-groSCeryUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		ED287433219BC50A00EE0ECA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED6E03FF218668030081AABD /* Group.swift */,
+				ED6E0401218668030081AABD /* Item.swift */,
+				ED6E0400218668030081AABD /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED287434219BC54900EE0ECA /* SetUpViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ED9785A82198E08A00ED165D /* InitialViewController.swift */,
+				ED9785AC2198F6CD00ED165D /* SignUpViewController.swift */,
+				ED9785AA2198E56D00ED165D /* LoginViewController.swift */,
+				ED9785B22199065F00ED165D /* JoinGroupViewController.swift */,
+				ED9785AE2199010700ED165D /* JoinCreateGroupViewController.swift */,
+				ED9785B02199064F00ED165D /* CreateGroupViewController.swift */,
+			);
+			path = SetUpViewControllers;
+			sourceTree = "<group>";
+		};
+		ED287435219BC55B00EE0ECA /* MainAppViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ED569D4921995B6A00F0EFB0 /* ProfilePageViewController.swift */,
+				ED6E04062186680D0081AABD /* BoughtItemViewController.swift */,
+				ED9785A22198B22600ED165D /* AddItemViewController.swift */,
+				38BB4BF4218C075B00230878 /* GroupPageController.swift */,
+				ED6E04052186680D0081AABD /* GroceryListViewController.swift */,
+			);
+			path = MainAppViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,7 +470,6 @@
 				ED9785A92198E08A00ED165D /* InitialViewController.swift in Sources */,
 				ED6E04082186680D0081AABD /* BoughtItemViewController.swift in Sources */,
 				ED6E04072186680D0081AABD /* GroceryListViewController.swift in Sources */,
-				A3EEF4482178FD3600FE09C5 /* ViewController.swift in Sources */,
 				38BB4BF5218C075B00230878 /* GroupPageController.swift in Sources */,
 				ED9785B32199065F00ED165D /* JoinGroupViewController.swift in Sources */,
 				A3EEF4462178FD3600FE09C5 /* AppDelegate.swift in Sources */,

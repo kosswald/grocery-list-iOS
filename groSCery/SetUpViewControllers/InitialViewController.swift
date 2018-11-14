@@ -18,11 +18,11 @@ class InitialViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if (SavedData().loggedIn) {
-            if (SavedData().currentUser.groupID != nil) {
-                performSegue(withIdentifier: "AlreadyLoggedInSegueID", sender: nil)
-            }
-        }
+//        if (SavedData().loggedIn) {
+//            if (SavedData().currentUser.groupID != nil) {
+//                performSegue(withIdentifier: "AlreadyLoggedInSegueID", sender: nil)
+//            }
+//        }
     }
     
  

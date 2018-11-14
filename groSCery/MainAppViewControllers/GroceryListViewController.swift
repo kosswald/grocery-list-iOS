@@ -39,11 +39,12 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "\(user.name)'s List"
         itemsInStock = SavedData().inStockItems
         itemsOutOfStock = SavedData().outOfStockItems
+        
         tableView.reloadData()
         
         
@@ -104,25 +105,44 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     // MARK: Add Remove Item Delegate
     func didBuyItem(item: Item, index: Int, price: String) {
-        item.inStock = true
-        itemsInStock.append(item)
-        itemsOutOfStock.remove(at: index)
-        SavedData().inStockItems.append(item)
-        SavedData().outOfStockItems.remove(at: index)
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        
+        networkManager.markItemInStock(itemID: item.itemID) { (success) in
+            DispatchQueue.main.async {
+                if (success) {
+                    item.inStock = true
+                    self.itemsInStock.append(item)
+                    SavedData().inStockItems.append(item)
+                    self.itemsOutOfStock.remove(at: index)
+                    SavedData().outOfStockItems.remove(at: index)
+                    self.tableView.reloadData()
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "Unable to mark item in stock.", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
+       
     }
     
     func didMarkItemOutOfStock(item: Item, index: Int) {
-        item.inStock = false
-        itemsOutOfStock.append(item)
-        itemsInStock.remove(at: index)
-        SavedData().outOfStockItems.append(item)
-        SavedData().outOfStockItems.remove(at: index)
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        networkManager.markItemOutOfStock(itemID: item.itemID) { (success) in
+            DispatchQueue.main.async {
+                if (success) {
+                    item.inStock = false
+                    self.itemsOutOfStock.append(item)
+                    SavedData().outOfStockItems.append(item)
+                    self.itemsInStock.remove(at: index)
+                    SavedData().inStockItems.remove(at: index)
+                    self.tableView.reloadData()
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "Unable to mark item out of stock.", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
+       
     }
     
     
