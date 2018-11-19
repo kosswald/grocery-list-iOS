@@ -90,6 +90,7 @@
 		ED9785AE2199010700ED165D /* JoinCreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCreateGroupViewController.swift; sourceTree = "<group>"; };
 		ED9785B02199064F00ED165D /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
 		ED9785B22199065F00ED165D /* JoinGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupViewController.swift; sourceTree = "<group>"; };
+		ED9AEF6F21A1FFB300ED371A /* groSCery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = groSCery.entitlements; sourceTree = "<group>"; };
 		FBC664E4AA67B50A93D79300 /* Pods_groSCeryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_groSCeryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -156,6 +157,7 @@
 		A3EEF4442178FD3600FE09C5 /* groSCery */ = {
 			isa = PBXGroup;
 			children = (
+				ED9AEF6F21A1FFB300ED371A /* groSCery.entitlements */,
 				A3EEF4452178FD3600FE09C5 /* AppDelegate.swift */,
 				A3EEF4492178FD3600FE09C5 /* Main.storyboard */,
 				ED287434219BC54900EE0ECA /* SetUpViewControllers */,
@@ -309,6 +311,11 @@
 				TargetAttributes = {
 					A3EEF4412178FD3600FE09C5 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					A3EEF4552178FD3700FE09C5 = {
 						CreatedOnToolsVersion = 10.0;

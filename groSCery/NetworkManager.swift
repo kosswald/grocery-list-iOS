@@ -305,6 +305,8 @@ class NetworkManager {
             let session = URLSession.shared
             session.dataTask(with: request, completionHandler: { (data, response, error) in
                 if error != nil {
+                    print(error!)
+                    
                     completion(false, "")
                 }
                 if let data = data {

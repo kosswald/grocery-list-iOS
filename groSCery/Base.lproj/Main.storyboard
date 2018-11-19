@@ -30,26 +30,39 @@
                                     <constraint firstAttribute="width" secondItem="Q2j-AS-ydt" secondAttribute="height" multiplier="1:1" id="pOX-b5-5a4"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="67K-O1-nNJ">
-                                <rect key="frame" x="56.333333333333343" y="516.66666666666663" width="262.33333333333326" height="200"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="67K-O1-nNJ">
+                                <rect key="frame" x="67.666666666666686" y="541.66666666666663" width="240" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oS8-RP-E6w">
-                                        <rect key="frame" x="0.0" y="0.0" width="262.33333333333331" height="100"/>
-                                        <state key="normal" title="Log In"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="XaS-FY-x5H"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                        <state key="normal" title="Login" backgroundImage="YellowButton">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <segue destination="7FG-Lt-xTa" kind="show" id="eC3-FA-YVf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icN-t1-iwx">
-                                        <rect key="frame" x="0.0" y="100" width="262.33333333333331" height="100"/>
-                                        <state key="normal" title="Sign up"/>
+                                        <rect key="frame" x="0.0" y="90" width="240" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="KHI-K1-k8P"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                        <state key="normal" title="Sign up" backgroundImage="YellowButton">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <segue destination="LG2-dI-rKO" kind="show" id="HoS-Rv-2am"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="uJy-7d-ksM"/>
+                                    <constraint firstAttribute="width" constant="240" id="hSy-GE-c5o"/>
+                                    <constraint firstAttribute="height" constant="150" id="uJy-7d-ksM"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -62,11 +75,11 @@
                             <constraint firstItem="mKC-CE-oLs" firstAttribute="centerX" secondItem="Gzn-N8-0vN" secondAttribute="centerX" id="FUZ-cw-YV0"/>
                             <constraint firstItem="67K-O1-nNJ" firstAttribute="centerX" secondItem="Gzn-N8-0vN" secondAttribute="centerX" id="H5W-bm-ooz"/>
                             <constraint firstItem="mKC-CE-oLs" firstAttribute="top" secondItem="Gzn-N8-0vN" secondAttribute="top" constant="20" id="RK6-bl-gyY"/>
-                            <constraint firstItem="67K-O1-nNJ" firstAttribute="width" secondItem="IDT-i9-uch" secondAttribute="width" multiplier="0.7" id="hlv-kX-Zvt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gzn-N8-0vN"/>
                     </view>
                     <connections>
+                        <outlet property="titleLabel" destination="mKC-CE-oLs" id="AzY-5M-tkz"/>
                         <segue destination="TiA-Gk-zuU" kind="presentation" identifier="AlreadyLoggedInSegueID" id="Uoe-bg-sxd"/>
                     </connections>
                 </viewController>
@@ -736,9 +749,10 @@
     </scenes>
     <resources>
         <image name="Logo" width="518" height="518"/>
+        <image name="YellowButton" width="400" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZFX-zN-1f4"/>
+        <segue reference="Uoe-bg-sxd"/>
         <segue reference="NWD-nL-mDs"/>
     </inferredMetricsTieBreakers>
 </document>
