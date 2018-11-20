@@ -178,24 +178,31 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpQ-wW-iOj">
                                 <rect key="frame" x="146" y="103.66666666666667" width="83" height="39.000000000000014"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.54739242792129517" green="0.1032785102725029" blue="0.066622547805309296" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NSh-V5-s1F">
                                 <rect key="frame" x="37.666666666666657" y="190.66666666666666" width="300" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kV3-9l-Fd1">
                                 <rect key="frame" x="37.666666666666657" y="272.66666666666669" width="300" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeT-Us-sfT">
-                                <rect key="frame" x="163" y="396" width="49" height="30"/>
-                                <state key="normal" title="Submit"/>
+                                <rect key="frame" x="67.666666666666686" y="381" width="240" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="WLh-ik-wg4"/>
+                                    <constraint firstAttribute="height" constant="60" id="qZl-eB-t3h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                <state key="normal" title="Submit" backgroundImage="YellowButton">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="submitLogin:" destination="7FG-Lt-xTa" eventType="touchUpInside" id="KWw-fH-Rt0"/>
                                 </connections>
@@ -752,7 +759,7 @@
         <image name="YellowButton" width="400" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uoe-bg-sxd"/>
+        <segue reference="Afw-Nh-kk4"/>
         <segue reference="NWD-nL-mDs"/>
     </inferredMetricsTieBreakers>
 </document>
