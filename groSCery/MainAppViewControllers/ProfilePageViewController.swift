@@ -24,6 +24,7 @@ class ProfilePageViewController: UIViewController {
         } else {
             groupIDLabel.text = "Group ID: NA"
         }
+        
     }
 
     @IBAction func logoutButtonClicked(_ sender: Any) {

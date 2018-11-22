@@ -74,7 +74,7 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "TableViewCellResuableID")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCellResuableID", for: indexPath)
         var item = Item(inStock: true, name: "", suscribedUsers: [], itemID: -1)
         if (indexPath.section == 0) {
             item = itemsOutOfStock[indexPath.row]
@@ -82,7 +82,6 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
             item = itemsInStock[indexPath.row]
         }
         cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "In stock: \(item.inStock)"
         return cell
     }
     

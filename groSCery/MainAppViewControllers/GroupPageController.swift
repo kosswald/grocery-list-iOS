@@ -54,7 +54,7 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "GroupItemsCellID")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupItemsCellID", for: indexPath)
         var item = Item(inStock: true, name: "", suscribedUsers: [], itemID: -1)
         if (indexPath.section == 0) {
             item = notSubscribedItems[indexPath.row]
