@@ -146,6 +146,24 @@ class SavedData {
         }
     }
     
+    var groupMembers: [User] {
+        set {
+            let encoder = JSONEncoder()
+            if let encodedUsers = try? encoder.encode(newValue) {
+                UserDefaults.standard.set(encodedUsers, forKey: "groupMembersKey")
+            }
+            
+        } get {
+            if let itemData = UserDefaults.standard.value(forKey: "groupMembersKey") as? Data {
+                let decoder = JSONDecoder()
+                if let members = try? decoder.decode(Array.self, from: itemData) as [User] {
+                    return members
+                }
+            }
+            return [User]()
+        }
+    }
+    
  
 
 }

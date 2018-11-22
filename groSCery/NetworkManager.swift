@@ -124,6 +124,54 @@ class NetworkManager {
         }
     }
     
+    func getGroupSubscribers(completion: @escaping (Bool) -> Void) {
+        let urlPath: String = "https://201.kristofs.app/api/groups/subscribers"
+        if let submitURL = URL(string: urlPath) {
+            var request = URLRequest(url: submitURL)
+            request.httpMethod = "GET"
+            let session = URLSession.shared
+            let accessTokenBearer = "Bearer " + SavedData().accessToken
+            request.setValue(accessTokenBearer, forHTTPHeaderField: "Authorization")
+            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            
+            session.dataTask(with: request, completionHandler: { (data, response, error) in
+                if let data = data {
+                    do {
+                        print(data)
+                        let dataJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+                        var groupMembers = [User]()
+                        if let members = dataJSON["success"] as? [[String: Any]] {
+                            for member in members {
+                                var name = ""
+                                var email = ""
+                                var groupID: Int? = nil
+                                if let userName = member["name"] as? String {
+                                    name = userName
+                                }
+                                if let userEmail = member["email"] as? String {
+                                    email = userEmail
+                                }
+                                if let userGroupID = member["groupID"] as? Int {
+                                    groupID = userGroupID
+                                }
+                                let newUser = User(email: email, name: name, groupID: groupID)
+                                groupMembers.append(newUser)
+                            }
+                            SavedData().groupMembers = groupMembers
+                            completion(true)
+                            
+                        }
+                        print(dataJSON)
+                        
+                    } catch {
+                        completion(false)
+                        print(error)
+                    }
+                }
+            }).resume()
+        }
+    }
+    
     // Items
     
     func createNewItem(name: String, completion: @escaping (Bool, Item?) -> Void) {

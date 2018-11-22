@@ -31,6 +31,12 @@ class ProfilePageViewController: UIViewController {
         NetworkManager().logoutUser { (success) in
             DispatchQueue.main.async {
                 if (success) {
+                    SavedData().accessToken = ""
+                    SavedData().allGroupItems = [Item]()
+                    SavedData().inStockItems = [Item]()
+                    SavedData().outOfStockItems = [Item]()
+                    SavedData().groupMembers = [User]()
+                    SavedData().currentUser = User(email: "", name: "", groupID: nil)
                     self.performSegue(withIdentifier: "unwindToInitialVCSegueID", sender: nil)
                 } else {
                     let alert = UIAlertController(title: "Log out error", message: "Unable to log out.", preferredStyle: UIAlertController.Style.alert)

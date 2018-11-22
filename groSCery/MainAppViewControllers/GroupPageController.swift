@@ -22,6 +22,9 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        networkManager.getGroupSubscribers { (success) in
+            print(success)
+        }
         subscribedItems = SavedData().suscribedItems
         notSubscribedItems = SavedData().unsuscribedItems
     }
