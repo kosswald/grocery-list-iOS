@@ -113,7 +113,10 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
                     SavedData().inStockItems.append(item)
                     self.itemsOutOfStock.remove(at: index)
                     SavedData().outOfStockItems.remove(at: index)
-                    self.tableView.reloadData()
+                    self.tableView.performBatchUpdates({
+                        self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+                        self.tableView.insertRows(at: [IndexPath(row: self.itemsInStock.count - 1, section: 1)], with: .automatic)
+                    }, completion: nil)
                 } else {
                     let alert = UIAlertController(title: "Error", message: "Unable to mark item in stock.", preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
@@ -133,7 +136,10 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
                     SavedData().outOfStockItems.append(item)
                     self.itemsInStock.remove(at: index)
                     SavedData().inStockItems.remove(at: index)
-                    self.tableView.reloadData()
+                    self.tableView.performBatchUpdates({
+                        self.tableView.deleteRows(at: [IndexPath(row: index, section: 1)], with: .automatic)
+                        self.tableView.insertRows(at: [IndexPath(row: self.itemsOutOfStock.count-1, section: 0)], with: .automatic)
+                    }, completion: nil)
                 } else {
                     let alert = UIAlertController(title: "Error", message: "Unable to mark item out of stock.", preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))

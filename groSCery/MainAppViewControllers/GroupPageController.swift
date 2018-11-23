@@ -105,13 +105,15 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
                     SavedData().suscribedItems.append(item)
                     self.notSubscribedItems.remove(at: index)
                     SavedData().unsuscribedItems.remove(at: index)
+                    self.tableView.performBatchUpdates({
+                        self.tableView.insertRows(at: [IndexPath(row: self.subscribedItems.count - 1, section: 1)], with: .automatic)
+                        self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+                    }, completion: nil)
                     if (item.inStock) {
                         SavedData().inStockItems.append(item)
                     } else {
                         SavedData().outOfStockItems.append(item)
                     }
-                    self.tableView.reloadData()
-                    
                 } else {
                     let alert = UIAlertController(title: "Subscribe Error", message: "Unable to subscribe to item.", preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
@@ -131,6 +133,10 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
                     SavedData().suscribedItems.remove(at: index)
                     self.notSubscribedItems.append(item)
                     SavedData().unsuscribedItems.append(item)
+                    self.tableView.performBatchUpdates({
+                        self.tableView.insertRows(at: [IndexPath(row: self.notSubscribedItems.count - 1, section: 0)], with: .automatic)
+                        self.tableView.deleteRows(at: [IndexPath(row: index, section: 1)], with: .automatic)
+                    }, completion: nil)
                     if (item.inStock) {
                         var i = 0
                         for inStockItem in SavedData().inStockItems {
@@ -150,7 +156,7 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
                             i = i + 1
                         }
                     }
-                    self.tableView.reloadData()
+//                    self.tableView.reloadData()
                     
                 } else {
                     let alert = UIAlertController(title: "Unsuscribe Error", message: "Unable to unsuscribe to item.", preferredStyle: UIAlertController.Style.alert)
@@ -171,8 +177,9 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
                             if let item = item {
                                 self.subscribedItems.append(item)
                                 SavedData().suscribedItems.append(item)
+                                self.tableView.insertRows(at: [IndexPath(row: self.subscribedItems.count - 1, section: 1)], with: .automatic)
                                 SavedData().inStockItems.append(item)
-                                self.tableView.reloadData()
+//                                self.tableView.reloadData()
                             }
                           
                         } else {
