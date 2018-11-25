@@ -179,9 +179,7 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
                                 SavedData().suscribedItems.append(item)
                                 self.tableView.insertRows(at: [IndexPath(row: self.subscribedItems.count - 1, section: 1)], with: .automatic)
                                 SavedData().inStockItems.append(item)
-//                                self.tableView.reloadData()
                             }
-                          
                         } else {
                             let alert = UIAlertController(title: "Add Item Error", message: "Unable to add item.", preferredStyle: UIAlertController.Style.alert)
                             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))

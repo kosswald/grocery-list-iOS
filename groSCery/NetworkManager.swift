@@ -448,7 +448,49 @@ class NetworkManager {
         }
     }
     
+    // Transactions
     
+    func purchaseItem(itemID: Int, price: String, completion: @escaping (Bool) -> Void) {
+        let parameters : [String : Any] = ["item_id": itemID,
+                                           "price" : price]
+        
+        
+        let postString = dictToString(paramaterDict: parameters)
+        let postData = postString.data(using: String.Encoding.ascii, allowLossyConversion: true)!
+        let urlPath: String = "https://201.kristofs.app/api/transactions/purchase"
+        if let submitURL = URL(string: urlPath) {
+            var request = URLRequest(url: submitURL)
+            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.httpMethod = "POST"
+            request.httpBody = postData
+            request.timeoutInterval = 10
+            let accessTokenBearer = "Bearer " + SavedData().accessToken
+            request.setValue(accessTokenBearer, forHTTPHeaderField: "Authorization")
+            let session = URLSession.shared
+            session.dataTask(with: request, completionHandler: { (data, response, error) in
+                if error != nil {
+                    print(error)
+                    completion(false)
+                }
+                if let response = response {
+                    print(response)
+                }
+                if let data = data {
+                    do {
+                        let successJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
+                        if let _ = successJSON["success"] {
+                           completion(true)
+                        } else {
+                            completion(false)
+                        }
+                    } catch {
+                        print(error)
+                    }
+                }
+            }).resume()
+        }
+    }
+
     // Users
     
     func getUserDetails(completion: @escaping (Bool) -> Void) {

@@ -108,6 +108,9 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         networkManager.markItemInStock(itemID: item.itemID) { (success) in
             DispatchQueue.main.async {
                 if (success) {
+                    self.networkManager.purchaseItem(itemID: item.itemID, price: price, completion: { (success) in
+                        print(success)
+                    })
                     item.inStock = true
                     self.itemsInStock.append(item)
                     SavedData().inStockItems.append(item)

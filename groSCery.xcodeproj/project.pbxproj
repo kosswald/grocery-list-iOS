@@ -34,6 +34,7 @@
 		ED9785B12199064F00ED165D /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9785B02199064F00ED165D /* CreateGroupViewController.swift */; };
 		ED9785B32199065F00ED165D /* JoinGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9785B22199065F00ED165D /* JoinGroupViewController.swift */; };
 		EDF73BA021A672310019747B /* GroupMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF73B9F21A672310019747B /* GroupMembersViewController.swift */; };
+		EDF9E79421AB4664008101A1 /* GuestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9E79321AB4664008101A1 /* GuestListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		ED9785B22199065F00ED165D /* JoinGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupViewController.swift; sourceTree = "<group>"; };
 		ED9AEF6F21A1FFB300ED371A /* groSCery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = groSCery.entitlements; sourceTree = "<group>"; };
 		EDF73B9F21A672310019747B /* GroupMembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMembersViewController.swift; sourceTree = "<group>"; };
+		EDF9E79321AB4664008101A1 /* GuestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestListViewController.swift; sourceTree = "<group>"; };
 		FBC664E4AA67B50A93D79300 /* Pods_groSCeryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_groSCeryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -232,6 +234,7 @@
 		ED287435219BC55B00EE0ECA /* MainAppViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EDF9E79321AB4664008101A1 /* GuestListViewController.swift */,
 				ED569D4921995B6A00F0EFB0 /* ProfilePageViewController.swift */,
 				ED6E04062186680D0081AABD /* BoughtItemViewController.swift */,
 				ED9785A22198B22600ED165D /* AddItemViewController.swift */,
@@ -478,6 +481,7 @@
 				ED9785AB2198E56D00ED165D /* LoginViewController.swift in Sources */,
 				ED9785A52198D03B00ED165D /* NetworkManager.swift in Sources */,
 				ED9785A92198E08A00ED165D /* InitialViewController.swift in Sources */,
+				EDF9E79421AB4664008101A1 /* GuestListViewController.swift in Sources */,
 				EDF73BA021A672310019747B /* GroupMembersViewController.swift in Sources */,
 				ED6E04082186680D0081AABD /* BoughtItemViewController.swift in Sources */,
 				ED6E04072186680D0081AABD /* GroceryListViewController.swift in Sources */,
