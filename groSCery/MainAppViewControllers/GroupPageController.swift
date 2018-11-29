@@ -19,6 +19,9 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
     var notSubscribedItems = [Item]()
     let networkManager = NetworkManager()
     
+    private let refreshControl = UIRefreshControl()
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,8 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         subscribedItems = SavedData().suscribedItems
         notSubscribedItems = SavedData().unsuscribedItems
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshItems(_:)), for: .valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +39,27 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
         subscribedItems = SavedData().suscribedItems
         notSubscribedItems = SavedData().unsuscribedItems
         tableView.reloadData()
+    }
+    
+    @objc private func refreshItems(_ sender: Any) {
+        // Fetch Weather Data
+        print("refreshed")
+        networkManager.parseAllGroceryLists { (success) in
+            DispatchQueue.main.async {
+                if (success) {
+                    self.subscribedItems = SavedData().suscribedItems
+                    self.notSubscribedItems = SavedData().unsuscribedItems
+                    self.tableView.reloadData()
+                    self.refreshControl.endRefreshing()
+                } else {
+                    let alert = UIAlertController(title: "Refresh Error", message: "Couldn't load items.", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            
+        }
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

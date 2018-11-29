@@ -12,7 +12,7 @@ class NetworkManager {
     
     // Groups
     
-    func getGroupItems(completion: @escaping(Bool, [Item]) -> Void) {
+    private func getGroupItems(completion: @escaping(Bool, [Item]) -> Void) {
         let urlPath: String = "https://201.kristofs.app/api/groups/items"
         if let submitURL = URL(string: urlPath) {
             var request = URLRequest(url: submitURL)
@@ -369,6 +369,7 @@ class NetworkManager {
                             completion(false, "")
                         }
                     } catch {
+                        completion(false, "")
                         print(error)
                     }
                 }
@@ -542,7 +543,7 @@ class NetworkManager {
     }
     
     
-    func getUserItems(completion: @escaping(Bool, [Item]) -> Void) {
+    private func getUserItems(completion: @escaping(Bool, [Item]) -> Void) {
         let urlPath: String = "https://201.kristofs.app/api/users/items"
         if let submitURL = URL(string: urlPath) {
             var request = URLRequest(url: submitURL)
