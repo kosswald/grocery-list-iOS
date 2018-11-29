@@ -50,12 +50,12 @@ class GroupPageController: UIViewController, UITableViewDelegate, UITableViewDat
                     self.subscribedItems = SavedData().suscribedItems
                     self.notSubscribedItems = SavedData().unsuscribedItems
                     self.tableView.reloadData()
-                    self.refreshControl.endRefreshing()
                 } else {
                     let alert = UIAlertController(title: "Refresh Error", message: "Couldn't load items.", preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
+                self.refreshControl.endRefreshing()
             }
             
         }

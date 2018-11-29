@@ -24,6 +24,8 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
     var itemsInStock = [Item]()
     var itemsOutOfStock = [Item]()
     let networkManager = NetworkManager()
+    private let refreshControl = UIRefreshControl()
+
     
     // MARK: IB Outlets
     
@@ -36,7 +38,8 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         itemsInStock = SavedData().inStockItems
         itemsOutOfStock = SavedData().outOfStockItems
         user = SavedData().currentUser
-
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshItems(_:)), for: .valueChanged)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,9 +47,28 @@ class GroceryListViewController: UIViewController, UITableViewDelegate, UITableV
         self.title = "\(user.name)'s List"
         itemsInStock = SavedData().inStockItems
         itemsOutOfStock = SavedData().outOfStockItems
-        
         tableView.reloadData()
-        
+    }
+    
+    
+    @objc private func refreshItems(_ sender: Any) {
+        // Fetch Weather Data
+        print("refreshed")
+        networkManager.parseAllGroceryLists { (success) in
+            DispatchQueue.main.async {
+                if (success) {
+                    self.itemsOutOfStock = SavedData().outOfStockItems
+                    self.itemsInStock = SavedData().inStockItems
+                    self.tableView.reloadData()
+                } else {
+                    let alert = UIAlertController(title: "Refresh Error", message: "Couldn't load items.", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                self.refreshControl.endRefreshing()
+            }
+            
+        }
         
     }
 
